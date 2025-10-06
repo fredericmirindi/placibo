@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Tools - Frédéric Mirindi | AI-Powered Economic Analysis</title>
+    <meta name="description" content="Interactive AI-powered research tools for economic analysis, forecasting, and policy simulation by Frédéric Mirindi.">
+    <meta name="keywords" content="economic forecasting, AI research tools, policy analysis, NLP economics, interactive research">
+    <meta name="author" content="Frédéric Mirindi">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AI Research Tools - Frédéric Mirindi">
+    <meta property="og:description" content="Interactive tools for economic forecasting and policy analysis">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fredericmirindi.com/research.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon-32x32.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/research-widgets.css">
+    <link rel="stylesheet" href="assets/css/icon-visibility.css">
+    <link rel="stylesheet" href="assets/css/profile-links-white.css">
+    <link rel="stylesheet" href="assets/css/footer-icons-fix.css">
+    <link rel="stylesheet" href="assets/css/economics-chatbot.css">
+    
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-text">Frédéric Mirindi</span>
+                </a>
+            </div>
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="publications.html" class="nav-link">Publications</a></li>
+                <li><a href="research.html" class="nav-link active">Research</a></li>
+                <li><a href="conferences.html" class="nav-link">Conferences</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Research Hero -->
+    <section class="research-hero">
+        <div class="container">
+            <h1 class="research-title">AI-Powered Economic Research Platform</h1>
+            <p class="research-subtitle">Interactive tools for economic forecasting, policy analysis, and natural language processing</p>
+        </div>
+    </section>
+
+    <!-- Research Widgets Grid -->
+    <section class="research-widgets-grid">
+        <div class="container">
+            
+            <!-- 1. AI-Powered Economic Forecasting Widget -->
+            <div class="research-widget expert-widget">
+                <div class="widget-header">
+                    <div class="widget-icon">
+                        <i>🔮</i>
+                    </div>
+                    <h3>AI Economic Forecasting</h3>
+                    <p class="widget-description">Advanced machine learning models for economic prediction and trend analysis</p>
+                </div>
+
+                <div class="expert-controls-panel">
+                    <div class="control-group">
+                        <label for="forecast-timeframe" class="expert-label">Forecast Timeframe</label>
+                        <select id="forecast-timeframe" class="expert-select">
+                            <option value="1">1 Month</option>
+                            <option value="3" selected>3 Months</option>
+                            <option value="6">6 Months</option>
+                            <option value="12">12 Months</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="advanced-forecast-dashboard">
+                    <div class="forecast-metrics-grid">
+                        <div class="advanced-metric">
+                            <div class="metric-header">
+                                <i>📈</i>
+                                <span class="metric-title">GDP Growth</span>
+                            </div>
+                            <div class="metric-value-large" id="gdp-forecast">+2.8%</div>
+                            <div class="metric-details">
+                                <div class="confidence-band">Confidence: 95%</div>
+                                <div class="p-value">P-value: 0.032</div>
+                            </div>
+                        </div>
+
+                        <div class="advanced-metric">
+                            <div class="metric-header">
+                                <i>💰</i>
+                                <span class="metric-title">Inflation Rate</span>
+                            </div>
+                            <div class="metric-value-large" id="inflation-forecast">3.1%</div>
+                            <div class="metric-details">
+                                <div class="confidence-band" id="confidence-interval">±0.4%</div>
+                                <div class="p-value">R²: 0.87</div>
+                            </div>
+                        </div>
+
+                        <div class="advanced-metric">
+                            <div class="metric-header">
+                                <i>🎯</i>
+                                <span class="metric-title">Model Accuracy</span>
+                            </div>
+                            <div class="metric-value-large" id="model-accuracy">94.2%</div>
+                            <div class="performance-metrics">
+                                <div class="perf-item">
+                                    <span class="perf-label">RMSE</span>
+                                    <span class="perf-value">0.23</span>
+                                </div>
+                                <div class="perf-item">
+                                    <span class="perf-label">MAE</span>
+                                    <span class="perf-value">0.18</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-system">
+                        <div class="chart-tabs">
+                            <button class="chart-tab active">Forecast</button>
+                            <button class="chart-tab">Historical</button>
+                            <button class="chart-tab">Confidence</button>
+                        </div>
+                        <div class="chart-container-advanced">
+                            <canvas id="forecast-chart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expert-actions">
+                    <div class="action-group">
+                        <button id="run-forecast" class="expert-btn expert-btn-primary">
+                            <i>🔮</i>
+                            Generate Forecast
+                        </button>
+                        <button class="expert-btn expert-btn-secondary" onclick="exportAnalysisResults()">
+                            <i>💾</i>
+                            Export Results
+                        </button>
+                    </div>
+                </div>
+
+                <div id="forecast-loading" class="advanced-progress hidden">
+                    <div class="progress-header">
+                        <span class="progress-title">AI Analysis Progress</span>
+                        <span class="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar-advanced">
+                        <div class="progress-fill-advanced" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span id="forecast-status">Ready for analysis</span>
+                    </div>
+                </div>
+
+                <div class="expert-tags">
+                    <span class="expert-tag">Machine Learning</span>
+                    <span class="expert-tag">Time Series</span>
+                    <span class="expert-tag">LSTM Networks</span>
+                    <span class="expert-tag">Ensemble Methods</span>
+                </div>
+            </div>
+
+            <!-- 2. Policy Analysis Widget -->
+            <div class="research-widget expert-widget">
+                <div class="widget-header">
+                    <div class="widget-icon">
+                        <i>⚖️</i>
+                    </div>
+                    <h3>Automated Policy Analysis</h3>
+                    <p class="widget-description">Simulate economic policy impacts using advanced computational models</p>
+                </div>
+
+                <div class="policy-lab-config">
+                    <div class="config-tabs">
+                        <button class="config-tab active">Fiscal Policy</button>
+                        <button class="config-tab">Monetary Policy</button>
+                        <button class="config-tab">Trade Policy</button>
+                    </div>
+
+                    <div class="parameter-grid">
+                        <div class="parameter-control">
+                            <label for="policy-type" class="param-label">Policy Type</label>
+                            <select id="policy-type" class="expert-select">
+                                <option value="fiscal">Fiscal Stimulus</option>
+                                <option value="monetary">Interest Rate Change</option>
+                                <option value="trade">Trade Agreement</option>
+                                <option value="regulation">Regulatory Reform</option>
+                            </select>
+                        </div>
+
+                        <div class="parameter-control">
+                            <label for="policy-magnitude" class="param-label">Policy Magnitude</label>
+                            <input type="range" id="policy-magnitude" class="expert-slider" min="0" max="100" value="50">
+                            <div class="slider-ticks">
+                                <span>Low</span>
+                                <span id="slider-value">50%</span>
+                                <span>High</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="simulation-results">
+                    <div class="results-header">
+                        <h4>Policy Impact Simulation</h4>
+                        <div class="results-status">
+                            <span id="policy-status" class="status-ready">Ready for analysis</span>
+                        </div>
+                    </div>
+
+                    <div class="results-grid">
+                        <div class="result-metric">
+                            <div class="metric-icon">
+                                <i>📊</i>
+                            </div>
+                            <div class="metric-content">
+                                <span class="metric-label">GDP Impact</span>
+                                <span class="metric-value" id="gdp-impact">+1.2%</span>
+                                <span class="metric-range">95% CI: 0.8% - 1.6%</span>
+                            </div>
+                        </div>
+
+                        <div class="result-metric">
+                            <div class="metric-icon">
+                                <i>👥</i>
+                            </div>
+                            <div class="metric-content">
+                                <span class="metric-label">Employment</span>
+                                <span class="metric-value" id="employment-impact">+0.8%</span>
+                                <span class="metric-range">Jobs created: ~85K</span>
+                            </div>
+                        </div>
+
+                        <div class="result-metric">
+                            <div class="metric-icon">
+                                <i>💰</i>
+                            </div>
+                            <div class="metric-content">
+                                <span class="metric-label">Inflation</span>
+                                <span class="metric-value" id="inflation-impact">+0.3%</span>
+                                <span class="metric-range">Temporary effect</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container-advanced">
+                        <canvas id="policy-impact-chart" width="400" height="300"></canvas>
+                    </div>
+
+                    <div class="advanced-progress">
+                        <div class="progress-header">
+                            <span class="progress-title">Simulation Progress</span>
+                        </div>
+                        <div class="progress-bar-advanced">
+                            <div id="policy-progress" class="progress-fill-advanced" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expert-actions">
+                    <div class="action-group">
+                        <button id="analyze-policy" class="expert-btn expert-btn-primary">
+                            <i>📊</i>
+                            Analyze Policy Impact
+                        </button>
+                        <button class="expert-btn expert-btn-tertiary" onclick="compareScenarios()">
+                            <i>🔄</i>
+                            Compare Scenarios
+                        </button>
+                    </div>
+                </div>
+
+                <div class="expert-tags">
+                    <span class="expert-tag">Policy Modeling</span>
+                    <span class="expert-tag">CGE Models</span>
+                    <span class="expert-tag">Impact Assessment</span>
+                    <span class="expert-tag">Scenario Analysis</span>
+                </div>
+            </div>
+
+            <!-- 3. NLP Economic Text Analysis Widget -->
+            <div class="research-widget expert-widget">
+                <div class="widget-header">
+                    <div class="widget-icon">
+                        <i>🤖</i>
+                    </div>
+                    <h3>NLP Economic Text Analysis</h3>
+                    <p class="widget-description">Advanced natural language processing for economic document analysis</p>
+                </div>
+
+                <div class="nlp-expert-config">
+                    <div class="nlp-tabs">
+                        <button class="nlp-tab active">Text Input</button>
+                        <button class="nlp-tab">File Upload</button>
+                        <button class="nlp-tab">URL Analysis</button>
+                    </div>
+
+                    <div class="nlp-panel active">
+                        <div class="text-input-advanced">
+                            <div class="input-options">
+                                <button class="input-option active">Direct Input</button>
+                                <button class="input-option">Paste Text</button>
+                            </div>
+                            
+                            <div class="input-area active">
+                                <textarea 
+                                    id="economic-text-input" 
+                                    class="expert-textarea"
+                                    placeholder="Paste economic text, policy documents, or market analysis here..."
+                                ></textarea>
+                                <div class="text-stats">
+                                    <span>Words: <span id="word-count">0</span></span>
+                                    <span>Characters: <span id="char-count">0</span></span>
+                                    <span>Sentences: <span id="sentence-count">0</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="nlp-panel">
+                        <div class="file-drop-zone">
+                            <i>📁</i>
+                            <h4>Upload Economic Documents</h4>
+                            <p>Drag & drop or click to upload PDF, DOC, TXT files</p>
+                            <button class="upload-btn">Choose Files</button>
+                            <input type="file" id="text-file-input" hidden accept=".txt,.pdf,.doc,.docx">
+                        </div>
+                    </div>
+
+                    <div class="nlp-panel">
+                        <div class="text-input-advanced">
+                            <input 
+                                type="url" 
+                                class="expert-url-input"
+                                placeholder="https://example.com/economic-report"
+                                aria-label="Enter URL to analyze"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nlp-expert-dashboard">
+                    <div class="dashboard-row">
+                        <div class="sentiment-advanced">
+                            <h4>Economic Sentiment Analysis</h4>
+                            <div class="sentiment-dimensions">
+                                <div class="sentiment-dim">
+                                    <span class="dim-label">Overall</span>
+                                    <div class="sentiment-meter-adv">
+                                        <div class="meter-fill" id="sentiment-fill" style="width: 65%"></div>
+                                    </div>
+                                    <span class="dim-value" id="sentiment-score">65% Bullish</span>
+                                </div>
+                                <div class="sentiment-dim">
+                                    <span class="dim-label">Confidence</span>
+                                    <div class="sentiment-meter-adv">
+                                        <div class="meter-fill" style="width: 87%"></div>
+                                    </div>
+                                    <span class="dim-value">87%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="entity-recognition">
+                            <h4>Entity Recognition</h4>
+                            <div class="entity-categories" id="entity-recognition">
+                                <div class="entity-category">
+                                    <span class="category-title">Organizations</span>
+                                    <div class="entity-list">
+                                        <span class="entity-tag org">Bank of Canada</span>
+                                        <span class="entity-tag org">IMF</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-row">
+                        <div class="topic-modeling">
+                            <h4>Topic Modeling</h4>
+                            <div class="topic-distribution" id="topic-modeling">
+                                <div class="topic-item">
+                                    <span class="topic-label">Monetary Policy</span>
+                                    <div class="topic-bar">
+                                        <div class="topic-fill" style="width: 35%"></div>
+                                    </div>
+                                    <span class="topic-weight">35%</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-label">Economic Growth</span>
+                                    <div class="topic-bar">
+                                        <div class="topic-fill" style="width: 28%"></div>
+                                    </div>
+                                    <span class="topic-weight">28%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expert-actions">
+                    <div class="action-group">
+                        <button id="analyze-text" class="expert-btn expert-btn-primary">
+                            <i>🔍</i>
+                            Analyze Economic Text
+                        </button>
+                        <button class="expert-btn expert-btn-secondary">
+                            <i>📊</i>
+                            Generate Report
+                        </button>
+                    </div>
+                </div>
+
+                <div id="nlp-processing" class="advanced-progress hidden">
+                    <div class="progress-header">
+                        <span class="progress-title">NLP Processing</span>
+                    </div>
+                    <div class="progress-bar-advanced">
+                        <div class="progress-fill-advanced"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span>Analyzing economic sentiment and extracting key insights...</span>
+                    </div>
+                </div>
+
+                <div class="expert-tags">
+                    <span class="expert-tag">Natural Language Processing</span>
+                    <span class="expert-tag">Sentiment Analysis</span>
+                    <span class="expert-tag">Entity Recognition</span>
+                    <span class="expert-tag">Topic Modeling</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-info">
+                        <h3>Frédéric Mirindi</h3>
+                        <p>PhD Candidate in Economics & Econometrics</p>
+                        <p>Specializing in AI applications for economic analysis</p>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h4>Research</h4>
+                            <ul>
+                                <li><a href="publications.html">Publications</a></li>
+                                <li><a href="research.html">Research Tools</a></li>
+                                <li><a href="conferences.html">Conferences</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="link-group">
+                            <h4>Connect</h4>
+                            <ul>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-social">
+                        <a href="https://twitter.com/MirindiFrederic" target="_blank" class="social-link" aria-label="Twitter">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/in/frederic-mirindi" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=your-id" target="_blank" class="social-link" aria-label="Google Scholar">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Frédéric Mirindi. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/research-widgets.js"></script>
+    <script src="assets/js/economics-chatbot.js"></script>
+</body>
+</html>

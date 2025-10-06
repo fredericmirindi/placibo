@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Frédéric Mirindi | Economics & AI Research</title>
+    <meta name="description" content="Research publications by Frédéric Mirindi focusing on AI applications in economics, machine learning for forecasting, and sustainable development.">
+    <meta name="keywords" content="economics research, AI publications, machine learning, econometrics, academic papers, economic forecasting">
+    <meta name="author" content="Frédéric Mirindi">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Research Publications - Frédéric Mirindi">
+    <meta property="og:description" content="Explore research publications on AI applications in economics and machine learning">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fredericmirindi.com/publications.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon-32x32.jpg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/publications-showcase.css">
+    <link rel="stylesheet" href="assets/css/icon-visibility.css">
+    <link rel="stylesheet" href="assets/css/profile-links-white.css">
+    <link rel="stylesheet" href="assets/css/footer-icons-fix.css">
+    <link rel="stylesheet" href="assets/css/economics-chatbot.css">
+</head>
+<body>
+    <!-- AI Background Canvas -->
+    <canvas id="aiCanvasPublications"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-text">Frédéric Mirindi</span>
+                </a>
+            </div>
+            <ul class="navbar-nav">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="publications.html" class="nav-link active">Publications</a></li>
+                <li><a href="research.html" class="nav-link">Research</a></li>
+                <li><a href="conferences.html" class="nav-link">Conferences</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Publications Hero -->
+    <section class="publications-minimal-hero">
+        <div class="container">
+            <h1 class="publications-main-title">Research Publications</h1>
+            <p class="publications-subtitle">AI-powered economic research and machine learning applications</p>
+        </div>
+    </section>
+
+    <!-- Research Statistics -->
+    <section class="research-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-papers">8</div>
+                    <div class="stat-label">Published Papers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="total-citations">145</div>
+                    <div class="stat-label">Total Citations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="h-index">7</div>
+                    <div class="stat-label">H-Index</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="total-reads">1.3K</div>
+                    <div class="stat-label">Total Reads</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Search Interface -->
+    <section class="publications-interface">
+        <div class="container">
+            <div class="publications-search-interface">
+                <div class="search-filters-row">
+                    <div class="search-input-container">
+                        <i class="search-icon">🔍</i>
+                        <input 
+                            type="text" 
+                            id="pubs-search" 
+                            class="modern-search-input"
+                            placeholder="Search publications, authors, keywords..."
+                            aria-label="Search publications"
+                        >
+                    </div>
+                    
+                    <select id="pubs-year" class="modern-select" aria-label="Filter by year">
+                        <option value="all">All Years</option>
+                    </select>
+                    
+                    <select id="pubs-type" class="modern-select" aria-label="Filter by type">
+                        <option value="all">All Types</option>
+                    </select>
+                    
+                    <div class="view-controls">
+                        <button id="view-grid" class="view-btn active" aria-label="Grid view">
+                            <i>⊞</i> Grid
+                        </button>
+                        <button id="view-list" class="view-btn" aria-label="List view">
+                            <i>☰</i> List
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Category Filters -->
+                <div class="category-filters">
+                    <button class="category-filter active" data-category="all">
+                        All Publications <span class="count" id="count-all">8</span>
+                    </button>
+                    <button class="category-filter" data-category="ai-ml">
+                        AI & Machine Learning <span class="count" id="count-ai">6</span>
+                    </button>
+                    <button class="category-filter" data-category="economics">
+                        Economics <span class="count" id="count-econ">4</span>
+                    </button>
+                    <button class="category-filter" data-category="sustainability">
+                        Sustainability <span class="count" id="count-sustain">4</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Grid -->
+    <section class="publications-content">
+        <div class="container">
+            <div class="publications-header">
+                <h2>Publications <span id="results-count">(8 publications)</span></h2>
+                <div class="export-options">
+                    <button onclick="exportPublications('bibtex')" class="btn btn-secondary btn-sm">Export BibTeX</button>
+                    <button onclick="exportPublications('csv')" class="btn btn-secondary btn-sm">Export CSV</button>
+                </div>
+            </div>
+            
+            <div id="pubs-grid" class="pubs__grid">
+                <!-- Publications will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-info">
+                        <h3>Frédéric Mirindi</h3>
+                        <p>PhD Candidate in Economics & Econometrics</p>
+                        <p>Specializing in AI applications for economic analysis</p>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="link-group">
+                            <h4>Research</h4>
+                            <ul>
+                                <li><a href="publications.html">Publications</a></li>
+                                <li><a href="research.html">Research Tools</a></li>
+                                <li><a href="conferences.html">Conferences</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="link-group">
+                            <h4>Connect</h4>
+                            <ul>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-social">
+                        <a href="https://twitter.com/MirindiFrederic" target="_blank" class="social-link" aria-label="Twitter">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/in/frederic-mirindi" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=your-id" target="_blank" class="social-link" aria-label="Google Scholar">
+                            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Frédéric Mirindi. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/publications-enhanced.js"></script>
+    <script src="assets/js/economics-chatbot.js"></script>
+</body>
+</html>
