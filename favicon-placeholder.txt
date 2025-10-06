@@ -1,0 +1,20 @@
+/* ===== FAVICON FILE ===== */
+/* This is a placeholder for the favicon. Replace with actual favicon data */
+
+/* 
+This file represents favicon-32x32.png
+In a real implementation, this would be a binary PNG file.
+For the purposes of this demo, this is a placeholder.
+
+To implement properly, you would need:
+1. A 32x32 pixel PNG image
+2. Optimized for web display
+3. Contains your personal/brand logo or initials
+4. Saved as favicon-32x32.png
+*/
+
+/* CSS to ensure proper favicon display */
+link[rel="icon"] {
+  type: "image/png";
+  sizes: "32x32";
+}
