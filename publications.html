@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Publications - Frédéric Mirindi</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="description" content="Research publications and academic papers by Frédéric Mirindi - PhD Candidate specializing in AI applications in economics and econometrics.">
+    <meta name="keywords" content="Research Publications, Academic Papers, Economics Research, AI Economics, Machine Learning, Frederic Mirindi">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/publications-showcase.css">
+    <link rel="stylesheet" href="assets/css/profile-links-white.css">
+    <link rel="stylesheet" href="assets/css/profile-icons-fix.css">
+    <link rel="stylesheet" href="assets/css/icon-visibility.css">
+    <link rel="stylesheet" href="assets/css/footer-icons-fix.css">
+    
+    <!-- Chart.js for data visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                <span class="hero-nom-clean">Frédéric Mirindi</span>
+            </a>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="publications.html" class="nav-link active">Publications</a>
+            </li>
+            <li class="nav-item">
+                <a href="conferences.html" class="nav-link">Conferences</a>
+            </li>
+            <li class="nav-item">
+                <a href="research.html" class="nav-link">Research</a>
+            </li>
+            <li class="nav-item">
+                <a href="blog.html" class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+        </ul>
+        <div class="nav-controls">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+    <section class="page active" id="papers">
+        <!-- AI/ML Background Canvas for Publications -->
+        <canvas id="aiCanvasPublications" class="ai-background-canvas"></canvas>
+        
+        <!-- Hero Section -->
+        <div class="publications-minimal-hero">
+            <div class="container">
+                <h1 class="publications-main-title">Research Publications</h1>
+                <p class="publications-subtitle">Peer-reviewed research contributions in economics, AI, and econometrics</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Search and Filtering Interface -->
+            <div class="publications-search-interface">
+                <div class="search-filters-row">
+                    <select id="pubs-year" class="modern-select">
+                        <option value="all">All Years</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                    </select>
+                    <select id="pubs-type" class="modern-select">
+                        <option value="all">All Types</option>
+                        <option value="journal">Journal Article</option>
+                        <option value="conference">Conference Paper</option>
+                        <option value="book">Book Chapter</option>
+                        <option value="review">Review Article</option>
+                    </select>
+                    <div class="search-input-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input 
+                            id="pubs-search" 
+                            class="modern-search-input" 
+                            type="search"
+                            placeholder="Search publications by title, author, or keyword..." 
+                            autocomplete="off"
+                        />
+                    </div>
+                </div>
+                
+                <!-- View Controls -->
+                <div class="view-controls">
+                    <button id="pubs-grid" class="view-btn" data-view="grid">
+                        <i class="fas fa-th"></i> Grid View
+                    </button>
+                    <button id="pubs-list" class="view-btn active" data-view="list">
+                        <i class="fas fa-list"></i> List View
+                    </button>
+                </div>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="category-filters">
+                <button class="category-filter active" data-category="all">All</button>
+                <button class="category-filter" data-category="ai-ml">AI & Machine Learning</button>
+                <button class="category-filter" data-category="economics">Economics</button>
+                <button class="category-filter" data-category="sustainability">Sustainability</button>
+            </div>
+
+            <!-- Publications Grid -->
+            <div id="pubs-grid-wrap" class="pubs__grid is-list" aria-live="polite" aria-busy="false"></div>
+
+            <!-- Research Stats Section -->
+            <div class="research-stats-section">
+                <div class="container">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="total-papers">15</div>
+                            <div class="stat-label">Total Publications</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="total-citations">245</div>
+                            <div class="stat-label">Total Citations</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="h-index">8</div>
+                            <div class="stat-label">H-Index</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="total-reads">1,420</div>
+                            <div class="stat-label">Total Reads</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Toast notifications -->
+            <div id="pubs-toast" class="pubs__toast" role="status" aria-live="polite" aria-atomic="true"></div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                    <h4>Frédéric Mirindi</h4>
+                </a>
+                <p>PhD Candidate - Economics &amp; Econometrics</p>
+                <p>Founder - ThinkBit Edge Corp.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="conferences.html">Conferences</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>frederic.mirindi@umanitoba.ca</p>
+                <p>+1 (204) 298-4337</p>
+                <div style="margin-top:10px; display:flex; gap:15px; align-items:center;">
+                    <a href="https://www.linkedin.com/in/fredericmirindi" target="_blank" rel="noopener" title="LinkedIn">
+                        <img src="images/linkedin-icon.svg" alt="LinkedIn" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <a href="https://x.com/MirindiFrederic" target="_blank" rel="noopener" title="X">
+                        <img src="images/x-icon.svg" alt="X" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank" rel="noopener" title="ResearchGate">
+                        <img src="images/researchgate-icon.svg" alt="ResearchGate" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=fr&user=K5--CxAAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener" title="Google Scholar">
+                        <img src="images/google-scholar-icon.svg" alt="Google Scholar" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <a href="https://orcid.org/0009-0001-1798-9914" target="_blank" rel="noopener" title="ORCID">
+                        <img src="images/orcid-icon.svg" alt="ORCID iD" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2020 Frédéric Mirindi. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="app.js"></script>
+<script src="assets/js/publications-enhanced.js"></script>
+
+<!-- Initialize Publications System -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize the Publications Showcase
+    if (typeof PublicationsShowcase !== 'undefined') {
+        window.publicationsShowcase = new PublicationsShowcase();
+        console.log('Publications system initialized successfully');
+    } else {
+        console.error('PublicationsShowcase class not found - loading fallback');
+        
+        // Fallback: Load sample publications data
+        const gridWrap = document.querySelector('#pubs-grid-wrap');
+        if (gridWrap) {
+            gridWrap.innerHTML = `
+                <div class="pubs__item">
+                    <div class="pubs__content">
+                        <h3 class="pubs__title">
+                            <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank">
+                                Adaptive Proof-of-Stake Governance: A Game-Theoretic Approach to Consensus Mechanisms
+                            </a>
+                        </h3>
+                        <div class="pubs__meta">
+                            <span class="pubs__authors">Frédéric Mirindi</span>
+                            <span class="pubs__year">2025</span>
+                            <span class="pubs__type">Conference Paper</span>
+                        </div>
+                        <p class="pubs__abstract">
+                            This paper presents a novel approach to blockchain consensus mechanisms using game-theoretic principles to enhance governance structures in proof-of-stake systems.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="pubs__item">
+                    <div class="pubs__content">
+                        <h3 class="pubs__title">
+                            <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank">
+                                Family Size and Child Outcomes in Sub-Saharan Africa: The Role of Social Norms
+                            </a>
+                        </h3>
+                        <div class="pubs__meta">
+                            <span class="pubs__authors">Frédéric Mirindi</span>
+                            <span class="pubs__year">2025</span>
+                            <span class="pubs__type">Journal Article</span>
+                        </div>
+                        <p class="pubs__abstract">
+                            An empirical analysis of how family size affects child educational and health outcomes in Sub-Saharan Africa, considering the mediating role of social norms and cultural factors.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="pubs__item">
+                    <div class="pubs__content">
+                        <h3 class="pubs__title">
+                            <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank">
+                                Digital Feminism: Intersectionality and Activism in the Age of Social Media
+                            </a>
+                        </h3>
+                        <div class="pubs__meta">
+                            <span class="pubs__authors">Frédéric Mirindi</span>
+                            <span class="pubs__year">2024</span>
+                            <span class="pubs__type">Conference Paper</span>
+                        </div>
+                        <p class="pubs__abstract">
+                            Exploring how digital platforms are reshaping feminist activism and intersectional approaches to gender equality advocacy.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="pubs__item">
+                    <div class="pubs__content">
+                        <h3 class="pubs__title">
+                            <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank">
+                                A Review of Hybrid Machine Learning Approaches for Enhancing Human-Agent Interaction
+                            </a>
+                        </h3>
+                        <div class="pubs__meta">
+                            <span class="pubs__authors">Frédéric Mirindi</span>
+                            <span class="pubs__year">2023</span>
+                            <span class="pubs__type">Review Article</span>
+                        </div>
+                        <p class="pubs__abstract">
+                            Comprehensive review of machine learning techniques for improving human-agent interaction systems and their applications in economic modeling.
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+    }
+});
+</script>
+
+</body>
+</html>

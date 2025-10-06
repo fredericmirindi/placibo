@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conferences & Events - Frédéric Mirindi</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="description" content="Conference presentations and speaking engagements by Frédéric Mirindi - International conferences on economics, AI, and policy research.">
+    <meta name="keywords" content="Conference Presentations, Speaking Engagements, Academic Conferences, Economics, AI Research, Frederic Mirindi">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/profile-links-white.css">
+    <link rel="stylesheet" href="assets/css/profile-icons-fix.css">
+    <link rel="stylesheet" href="assets/css/icon-visibility.css">
+    <link rel="stylesheet" href="assets/css/footer-icons-fix.css">
+    
+    <style>
+    /* Conference-specific styles */
+    .conferences-minimal-hero {
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        padding: 6rem 0 4rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .conferences-main-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .conferences-subtitle {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 300;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .conference-stats {
+        padding: 4rem 0;
+        background: var(--bg-secondary);
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .stat-card {
+        background: var(--bg-primary);
+        padding: 2rem;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+    
+    .conferences-timeline {
+        padding: 4rem 0;
+    }
+    
+    .conference-card {
+        display: flex;
+        gap: 2rem;
+        padding: 2rem;
+        background: var(--bg-primary);
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .conference-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+    }
+    
+    .conference-date {
+        flex-shrink: 0;
+        text-align: center;
+        padding: 1rem;
+        background: var(--color-primary);
+        color: white;
+        border-radius: 12px;
+        width: 120px;
+        height: fit-content;
+    }
+    
+    .conference-date .month {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        opacity: 0.9;
+    }
+    
+    .conference-date .day {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0.2rem 0;
+    }
+    
+    .conference-date .year {
+        display: block;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    .conference-content {
+        flex: 1;
+    }
+    
+    .conference-status {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .conference-status.upcoming {
+        background: var(--color-success);
+        color: white;
+    }
+    
+    .conference-status.completed {
+        background: var(--color-secondary);
+        color: white;
+    }
+    
+    .conference-card h3 {
+        color: var(--text-primary);
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+    
+    .conference-details {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .detail-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+    }
+    
+    .detail-item i {
+        color: var(--color-primary);
+        width: 16px;
+    }
+    
+    .conference-topic {
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+    
+    .conference-actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .btn--primary {
+        background: var(--color-primary);
+        color: white;
+    }
+    
+    .btn--primary:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-1px);
+    }
+    
+    .btn--secondary {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+    }
+    
+    .btn--secondary:hover {
+        background: var(--color-secondary);
+        color: white;
+    }
+    
+    .conference-categories {
+        padding: 4rem 0;
+        background: var(--bg-secondary);
+    }
+    
+    .conference-categories h2 {
+        text-align: center;
+        color: var(--text-primary);
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+    }
+    
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .category-card {
+        background: var(--bg-primary);
+        padding: 2rem;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease;
+    }
+    
+    .category-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    .category-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+    }
+    
+    .category-card h3 {
+        color: var(--text-primary);
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .category-card p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+        .conference-card {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .conference-date {
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        
+        .conference-details {
+            justify-content: center;
+        }
+        
+        .conferences-main-title {
+            font-size: 2.5rem;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                <span class="hero-nom-clean">Frédéric Mirindi</span>
+            </a>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="publications.html" class="nav-link">Publications</a>
+            </li>
+            <li class="nav-item">
+                <a href="conferences.html" class="nav-link active">Conferences</a>
+            </li>
+            <li class="nav-item">
+                <a href="research.html" class="nav-link">Research</a>
+            </li>
+            <li class="nav-item">
+                <a href="blog.html" class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+        </ul>
+        <div class="nav-controls">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+    <section class="page active">
+        <!-- Hero Section -->
+        <div class="conferences-minimal-hero">
+            <div class="container">
+                <h1 class="conferences-main-title">Conferences & Events</h1>
+                <p class="conferences-subtitle">International speaking engagements and conference presentations</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <!-- Conference Statistics -->
+            <div class="conference-stats">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">13+</div>
+                        <div class="stat-label">Conferences</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Keynote Talks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2025</div>
+                        <div class="stat-label">Latest Year</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conference Timeline -->
+            <div class="conferences-timeline">
+                <div class="conference-card">
+                    <div class="conference-date">
+                        <span class="month">Jul</span>
+                        <span class="day">3</span>
+                        <span class="year">2025</span>
+                    </div>
+                    <div class="conference-content">
+                        <div class="conference-status upcoming">Upcoming</div>
+                        <h3>MARBLE 2025 – 6th International Conference on Mathematical Research for Blockchain Economy</h3>
+                        <div class="conference-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Athens, Greece</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Keynote Speaker</span>
+                            </div>
+                        </div>
+                        <p class="conference-topic">
+                            <strong>Topic:</strong> Adaptive Proof-of-Stake Governance: A Game-Theoretic Approach to Consensus Mechanisms
+                        </p>
+                        <div class="conference-actions">
+                            <a href="https://www.marble-conference.org/programme-2025" class="btn btn--primary" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Event Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conference-card">
+                    <div class="conference-date">
+                        <span class="month">May</span>
+                        <span class="day">31</span>
+                        <span class="year">2025</span>
+                    </div>
+                    <div class="conference-content">
+                        <div class="conference-status upcoming">Upcoming</div>
+                        <h3>59th Annual Meetings of the Canadian Economics Association</h3>
+                        <div class="conference-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Université du Québec à Montréal</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-microphone"></i>
+                                <span>Speaker</span>
+                            </div>
+                        </div>
+                        <p class="conference-topic">
+                            <strong>Topic:</strong> Family Size and Child Outcomes in Sub-Saharan Africa: The Role of Social Norms
+                        </p>
+                        <div class="conference-actions">
+                            <a href="https://www.economics.ca/event-6029611" class="btn btn--primary" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Event Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conference-card">
+                    <div class="conference-date">
+                        <span class="month">Jan</span>
+                        <span class="day">22</span>
+                        <span class="year">2025</span>
+                    </div>
+                    <div class="conference-content">
+                        <div class="conference-status completed">Completed</div>
+                        <h3>Graduate Seminar Series, Centre for the Study of Women and Gender</h3>
+                        <div class="conference-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>University of Warwick, UK</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-presentation-screen"></i>
+                                <span>Presenter</span>
+                            </div>
+                        </div>
+                        <p class="conference-topic">
+                            <strong>Topic:</strong> Digital Feminism: Intersectionality and Activism in the Age of Social Media
+                        </p>
+                        <div class="conference-actions">
+                            <a href="https://warwick.ac.uk/fac/soc/sociology/research/gender/calendar/graduateseminars202425/session3/" class="btn btn--secondary" target="_blank" rel="noopener">
+                                <i class="fas fa-file-powerpoint"></i> View Slides
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="conference-card">
+                    <div class="conference-date">
+                        <span class="month">Nov</span>
+                        <span class="day">27</span>
+                        <span class="year">2024</span>
+                    </div>
+                    <div class="conference-content">
+                        <div class="conference-status completed">Completed</div>
+                        <h3>Graduate Seminars in Economic and Social History</h3>
+                        <div class="conference-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>University of Oxford, UK</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <span>Workshop Presenter</span>
+                            </div>
+                        </div>
+                        <p class="conference-topic">
+                            <strong>Topic:</strong> From Rubber to Cobalt: Evolving Patterns of Resource Exploitation and Social Impact in the Democratic Republic of Congo
+                        </p>
+                        <div class="conference-actions">
+                            <a href="https://talks.ox.ac.uk/talks/persons/id/dcd41ec3-2797-42ad-bbef-5ab6ad55770d?format=txt" class="btn btn--secondary" target="_blank" rel="noopener">
+                                <i class="fas fa-download"></i> Workshop Materials
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conference-card">
+                    <div class="conference-date">
+                        <span class="month">Nov</span>
+                        <span class="day">05</span>
+                        <span class="year">2023</span>
+                    </div>
+                    <div class="conference-content">
+                        <div class="conference-status completed">Completed</div>
+                        <h3>TheoriseHAI Workshop, 12th International Conference on Human-Agent Interaction (HAI)</h3>
+                        <div class="conference-details">
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Swansea, UK</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>Workshop Presenter</span>
+                            </div>
+                        </div>
+                        <p class="conference-topic">
+                            <strong>Topic:</strong> A Review of Hybrid Machine Learning Approaches for Enhancing Human-Agent Interaction
+                        </p>
+                        <div class="conference-actions">
+                            <a href="https://sites.google.com/view/theorisehai/contributions" class="btn btn--secondary" target="_blank" rel="noopener">
+                                <i class="fas fa-file-alt"></i> Workshop Materials
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conference Categories -->
+            <div class="conference-categories">
+                <h2>Research Areas Presented</h2>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3>Blockchain Economics</h3>
+                        <p>Game-theoretic approaches to consensus mechanisms and cryptocurrency governance systems.</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Development Economics</h3>
+                        <p>Family dynamics, child outcomes, and social policy analysis in developing economies.</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Human-AI Interaction</h3>
+                        <p>Machine learning applications in human-computer interaction and economic systems.</p>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <h3>Digital Society</h3>
+                        <p>Social media impact on activism, gender equality, and digital transformation research.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                    <h4>Frédéric Mirindi</h4>
+                </a>
+                <p>PhD Candidate - Economics &amp; Econometrics</p>
+                <p>Founder - ThinkBit Edge Corp.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="conferences.html">Conferences</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>frederic.mirindi@umanitoba.ca</p>
+                <p>+1 (204) 298-4337</p>
+                <div style="margin-top:10px; display:flex; gap:15px; align-items:center;">
+                    <a href="https://www.linkedin.com/in/fredericmirindi" target="_blank" rel="noopener" title="LinkedIn">
+                        <img src="images/linkedin-icon.svg" alt="LinkedIn" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <a href="https://x.com/MirindiFrederic" target="_blank" rel="noopener" title="X">
+                        <img src="images/x-icon.svg" alt="X" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank" rel="noopener" title="ResearchGate">
+                        <img src="images/researchgate-icon.svg" alt="ResearchGate" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=fr&user=K5--CxAAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener" title="Google Scholar">
+                        <img src="images/google-scholar-icon.svg" alt="Google Scholar" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <a href="https://orcid.org/0009-0001-1798-9914" target="_blank" rel="noopener" title="ORCID">
+                        <img src="images/orcid-icon.svg" alt="ORCID iD" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2020 Frédéric Mirindi. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="app.js"></script>
+
+</body>
+</html>

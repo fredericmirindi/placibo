@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frédéric Mirindi - PhD Candidate in Economics & Econometrics</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="description" content="Leading researcher specializing in artificial intelligence applications in economic analysis, machine learning models for economic forecasting and policy analysis.">
+    <meta name="keywords" content="AI, Economics, Machine Learning, Economic Forecasting, Policy Analysis, Frederic Mirindi">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/economics-chatbot.css">
+    <link rel="stylesheet" href="assets/css/economic-widgets.css">
+    <link rel="stylesheet" href="assets/css/publications-showcase.css">
+    <link rel="stylesheet" href="assets/css/research-widgets.css">
+    <link rel="stylesheet" href="assets/css/profile-links-white.css">
+    <link rel="stylesheet" href="assets/css/profile-icons-fix.css">
+    <link rel="stylesheet" href="assets/css/icon-visibility.css">
+    <link rel="stylesheet" href="assets/css/footer-icons-fix.css">
+    
+    <!-- Chart.js for data visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                <span class="hero-nom-clean">Frédéric Mirindi</span>
+            </a>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="publications.html" class="nav-link">Publications</a>
+            </li>
+            <li class="nav-item">
+                <a href="conferences.html" class="nav-link">Conferences</a>
+            </li>
+            <li class="nav-item">
+                <a href="research.html" class="nav-link">Research</a>
+            </li>
+            <li class="nav-item">
+                <a href="blog.html" class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+        </ul>
+        <div class="nav-controls">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+    <!-- Hero Section -->
+    <section class="hero-section" style="position: relative; overflow: hidden;">
+        <!-- AI/ML Background Canvas -->
+        <canvas id="aiCanvas" class="ai-background-canvas"></canvas>
+        
+        <!-- Animated Shapes -->
+        <div class="hero-background"></div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="typing-text">Frédéric Mirindi</span>
+                    </h1>
+                    <p class="hero-subtitle">PhD Candidate - Economics & Econometrics</p>
+                    <p class="hero-subtitle">Founder - ThinkBit Edge Corp.</p>
+                    <p class="hero-description">
+                        Distinguished PhD Candidate at the University of Manitoba and active researcher at Université de Saint-Boniface 
+                        and Booth University College. Leading specialist in Machine Learning applications for economic analysis, 
+                        with extensive expertise in deep learning models for economic forecasting and policy analysis. 
+                        Former collaborator with the African Economic Research Consortium (AERC), contributing to the development of innovative economic 
+                        policies tailored to African markets and contexts. Explore my comprehensive research portfolio below through ResearchGate, Google Scholar, and ORCID.
+                    </p>
+                    <div class="hero-buttons">
+                        <a class="btn btn--outline research-profile-link" 
+                           href="https://www.researchgate.net/profile/Frederic-Mirindi" 
+                           target="_blank" 
+                           rel="noopener">
+                            <img src="images/researchgate-icon.svg" 
+                                 alt="ResearchGate icon" 
+                                 style="vertical-align:middle; width:20px; height:20px; margin-right:8px;" />
+                            ResearchGate Profile
+                        </a>
+                        <a class="btn btn--outline research-profile-link" 
+                           href="https://scholar.google.com/citations?hl=fr&user=K5--CxAAAAAJ&view_op=list_works&sortby=pubdate" 
+                           target="_blank" 
+                           rel="noopener">
+                            <img src="images/google-scholar-icon.svg" 
+                                 alt="Google Scholar icon" 
+                                 style="vertical-align:middle; width:20px; height:20px; margin-right:8px;" />
+                            Google Scholar Profile
+                        </a>
+                        <a class="btn btn--outline research-profile-link" 
+                           href="https://orcid.org/0009-0001-1798-9914" 
+                           target="_blank" 
+                           rel="noopener">
+                            <img src="images/orcid-icon.svg" 
+                                 alt="ORCID iD icon" 
+                                 style="vertical-align:middle; width:16px; height:16px; margin-right:6px;" />
+                            ORCID Profile
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-container">
+                        <div class="profile-image">
+                            <div class="circle">
+                                <img src="frederic.mirindi.jpg" alt="Frederic Mirindi" class="profile-photo">
+                            </div>
+                        </div>
+                        <!-- Collaboration Section -->
+                        <div class="collaboration-section">
+                            <p id="collaborationText" class="collaboration-text collaboration-text-small">
+                                Open for Collaboration
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Modal -->
+    <div id="emailModal" class="email-modal hidden">
+        <div class="email-content">
+            <span class="close-modal">&times;</span>
+            <h3>Let's Connect!</h3>
+            <p>Reach out for collaboration opportunities:</p>
+            <div class="email-display">
+                <i class="fas fa-envelope"></i>
+                <span id="emailText">frederic.mirindi@umanitoba.ca</span>
+                <button id="copyEmailBtn" class="copy-btn">
+                    <i class="fas fa-copy"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Achievements Section -->
+    <div class="highlights-section" style="margin-bottom: 4rem;">
+        <div class="container">
+            <h2 class="widget-section-title">Key Achievements</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <h3>15+</h3>
+                    <p>Published Papers</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>13+</h3>
+                    <p>Conference Presentations</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>15+</h3>
+                    <p>AI Models Developed</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>5+</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Economic Analytics Dashboard Section -->
+    <div class="highlights-section" style="margin-bottom: 4rem;">
+        <div class="container">
+            <h2 class="widget-section-title">Economic Analytics Dashboard</h2>
+            <!-- Economic Analysis Widgets -->
+            <div class="widget-cards-row">
+                <!-- Economic Calendar Widget -->
+                <div class="widget-card widget-economic-calendar">
+                    <div class="widget-card-icon" aria-hidden="true">📅</div>
+                    <div class="widget-card-content">
+                        <div class="widget-card-title">Economic Calendar</div>
+                        <div class="widget-calendar-events" id="economic-events">
+                            <div class="event-item high-impact">
+                                <span class="event-time">09:30</span>
+                                <span class="event-title">US CPI (YoY)</span>
+                                <span class="event-impact">🔴</span>
+                            </div>
+                            <div class="event-item medium-impact">
+                                <span class="event-time">11:00</span>
+                                <span class="event-title">CAD Retail Sales</span>
+                                <span class="event-impact">🟡</span>
+                            </div>
+                            <div class="event-item low-impact">
+                                <span class="event-time">14:15</span>
+                                <span class="event-title">USD Fed Speech</span>
+                                <span class="event-impact">🟢</span>
+                            </div>
+                        </div>
+                        <div class="widget-card-secondary">Today's Key Events</div>
+                        <div class="widget-card-caption">Track market-moving economic releases in real-time.</div>
+                    </div>
+                </div>
+                
+                <!-- Market Sentiment Widget -->
+                <div class="widget-card widget-market-sentiment">
+                    <div class="widget-card-icon" aria-hidden="true">📈</div>
+                    <div class="widget-card-content">
+                        <div class="widget-card-title">Market Sentiment</div>
+                        <div class="sentiment-gauge" id="sentiment-gauge">
+                            <div class="gauge-container">
+                                <div class="gauge-fill" id="gauge-fill" style="transform: rotate(45deg);"></div>
+                                <div class="gauge-center">
+                                    <span class="sentiment-value" id="sentiment-value">72</span>
+                                    <span class="sentiment-label">Bullish</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sentiment-indicators">
+                            <div class="indicator">
+                                <span class="indicator-label">Fear & Greed:</span>
+                                <span class="indicator-value bullish" id="fear-greed">72</span>
+                            </div>
+                            <div class="indicator">
+                                <span class="indicator-label">VIX:</span>
+                                <span class="indicator-value neutral" id="vix-value">18.5</span>
+                            </div>
+                        </div>
+                        <div class="widget-card-secondary">Global Markets</div>
+                        <div class="widget-card-caption">Real-time sentiment analysis from multiple indicators.</div>
+                    </div>
+                </div>
+                
+                <!-- Interest Rates Widget -->
+                <div class="widget-card widget-interest-rates">
+                    <div class="widget-card-icon" aria-hidden="true">🏦</div>
+                    <div class="widget-card-content">
+                        <div class="widget-card-title">Central Bank Rates</div>
+                        <div class="rates-list" id="interest-rates">
+                            <div class="rate-item">
+                                <span class="country-flag">🇺🇸</span>
+                                <span class="rate-info">
+                                    <span class="rate-country">Fed Fund Rate</span>
+                                    <span class="rate-value">5.25%</span>
+                                </span>
+                                <span class="rate-change unchanged">-</span>
+                            </div>
+                            <div class="rate-item">
+                                <span class="country-flag">🇨🇦</span>
+                                <span class="rate-info">
+                                    <span class="rate-country">BoC Rate</span>
+                                    <span class="rate-value">4.75%</span>
+                                </span>
+                                <span class="rate-change down">▼</span>
+                            </div>
+                            <div class="rate-item">
+                                <span class="country-flag">🇪🇺</span>
+                                <span class="rate-info">
+                                    <span class="rate-country">ECB Rate</span>
+                                    <span class="rate-value">4.25%</span>
+                                </span>
+                                <span class="rate-change unchanged">-</span>
+                            </div>
+                        </div>
+                        <div class="widget-card-secondary">Key Central Banks</div>
+                        <div class="widget-card-caption">Monitor global monetary policy changes.</div>
+                    </div>
+                </div>
+                
+                <!-- Economic Indicators Widget -->
+                <div class="widget-card widget-economic-indicators">
+                    <div class="widget-card-icon" aria-hidden="true">📊</div>
+                    <div class="widget-card-content">
+                        <div class="widget-card-title">Key Indicators</div>
+                        <div class="indicators-grid" id="economic-indicators">
+                            <div class="indicator-item">
+                                <span class="indicator-name">GDP Growth</span>
+                                <span class="indicator-value positive">+2.1%</span>
+                            </div>
+                            <div class="indicator-item">
+                                <span class="indicator-name">Inflation Rate</span>
+                                <span class="indicator-value neutral">3.2%</span>
+                            </div>
+                            <div class="indicator-item">
+                                <span class="indicator-name">Unemployment</span>
+                                <span class="indicator-value positive">3.7%</span>
+                            </div>
+                            <div class="indicator-item">
+                                <span class="indicator-name">Job Growth</span>
+                                <span class="indicator-value positive">+187K</span>
+                            </div>
+                        </div>
+                        <div class="widget-card-secondary">US Economy</div>
+                        <div class="widget-card-caption">Real-time economic health monitoring.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Information Dashboard Section -->
+    <div class="highlights-section" style="margin-bottom: 4rem;">
+        <div class="container">
+            <h2 class="widget-section-title">Live Information Dashboard</h2>
+            <!-- Live Data Widgets -->
+            <div class="widget-cards-row">
+                <!-- Local Time Card -->
+                <div class="widget-card widget-time">
+                    <div class="widget-card-icon" aria-hidden="true">🕓</div>
+                    <div class="widget-card-content">
+                        <div class="widget-card-title">Local Time</div>
+                        <div class="widget-time-main" id="watch-time">11:28</div>
+                        <div class="widget-card-secondary">Winnipeg, MB</div>
+                        <div class="widget-card-caption">Synchronized with Winnipeg local time.</div>
+                    </div>
+                </div>
+                
+                <!-- Weather Card -->
+                <div class="widget-card widget-weather">
+                    <div class="widget-card-icon" aria-hidden="true">🌤️</div>
+                    <div class="widget-card-content">
+                        <div class="widget-card-title">Weather</div>
+                        <div class="widget-weather-main">
+                            <span class="widget-weather-icon" id="weather-icon">☀️</span>
+                            <span class="widget-weather-temp" id="weather-temp">25°C</span>
+                        </div>
+                        <div class="widget-weather-desc" id="weather-desc">Sunny</div>
+                        <div class="widget-card-secondary">Winnipeg, MB</div>
+                        <div class="widget-card-caption">Weather auto-updates every 10 min.</div>
+                    </div>
+                </div>
+                
+                <!-- Quote Card -->
+                <div class="widget-card widget-quote">
+                    <div class="widget-card-icon" aria-hidden="true">💡</div>
+                    <div class="widget-card-content">
+                        <div class="widget-card-title">Quote of the Day</div>
+                        <div class="widget-quote-main" id="fact-box">
+                            "Economics is the study of how society manages its scarce resources."
+                        </div>
+                        <div class="widget-card-caption">Discover fresh economic wisdom each day!</div>
+                    </div>
+                </div>
+                
+                <!-- Bitcoin Price Card -->
+                <div class="widget-card widget-crypto">
+                    <div class="widget-card-icon" aria-hidden="true">₿</div>
+                    <div class="widget-card-content">
+                        <div class="widget-card-title">Bitcoin Price</div>
+                        <div class="widget-crypto-main">
+                            <span class="widget-crypto-price" id="crypto-price">$65,420</span>
+                        </div>
+                        <div class="widget-crypto-change" id="crypto-change">
+                            <span class="crypto-positive">+2.34% (24h)</span>
+                        </div>
+                        <div class="widget-card-secondary">Live Market Data</div>
+                        <div class="widget-card-caption">Updated every 5 minutes from CoinGecko API.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                    <h4>Frédéric Mirindi</h4>
+                </a>
+                <p>PhD Candidate - Economics &amp; Econometrics</p>
+                <p>Founder - ThinkBit Edge Corp.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="conferences.html">Conferences</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>frederic.mirindi@umanitoba.ca</p>
+                <p>+1 (204) 298-4337</p>
+                <div style="margin-top:10px; display:flex; gap:15px; align-items:center;">
+                    <!-- LinkedIn Icon -->
+                    <a href="https://www.linkedin.com/in/fredericmirindi" target="_blank" rel="noopener" title="LinkedIn" style="display:inline-flex;align-items:center;">
+                        <img src="images/linkedin-icon.svg" alt="LinkedIn" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <!-- X (Twitter) Icon -->
+                    <a href="https://x.com/MirindiFrederic" target="_blank" rel="noopener" title="X" style="display:inline-flex;align-items:center;">
+                        <img src="images/x-icon.svg" alt="X" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <!-- ResearchGate Icon -->
+                    <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank" rel="noopener" title="ResearchGate" style="display:inline-flex;align-items:center;">
+                        <img src="images/researchgate-icon.svg" alt="ResearchGate" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <!-- Google Scholar Icon -->
+                    <a href="https://scholar.google.com/citations?hl=fr&user=K5--CxAAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener" title="Google Scholar" style="display:inline-flex;align-items:center;">
+                        <img src="images/google-scholar-icon.svg" alt="Google Scholar" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <!-- ORCID Icon -->
+                    <a href="https://orcid.org/0009-0001-1798-9914" target="_blank" rel="noopener" title="ORCID" style="display:inline-flex;align-items:center;">
+                        <img src="images/orcid-icon.svg" alt="ORCID iD" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2020 Frédéric Mirindi. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="app.js"></script>
+<script src="assets/js/publications-enhanced.js"></script>
+<script src="assets/js/economics-chatbot.js"></script>
+<script src="assets/js/research-widgets-expert.js"></script>
+</body>
+</html>

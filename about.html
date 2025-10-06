@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Frédéric Mirindi</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="description" content="Learn more about Frédéric Mirindi - PhD Candidate in Economics, AI researcher, and founder of ThinkBit Edge Corp.">
+    <meta name="keywords" content="Frederic Mirindi, Economics PhD, AI Research, Academic Biography, University of Manitoba, Economics Researcher">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/profile-links-white.css">
+    <link rel="stylesheet" href="assets/css/profile-icons-fix.css">
+    <link rel="stylesheet" href="assets/css/icon-visibility.css">
+    <link rel="stylesheet" href="assets/css/footer-icons-fix.css">
+    
+    <style>
+    /* About-specific styles */
+    .about-minimal-hero {
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        padding: 6rem 0 4rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .about-main-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .about-subtitle {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 300;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .about-content {
+        padding: 4rem 0;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .about-intro {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 3rem;
+        margin-bottom: 4rem;
+        align-items: start;
+    }
+    
+    .about-text {
+        color: var(--text-primary);
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+    
+    .about-text p {
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-image {
+        position: sticky;
+        top: 2rem;
+    }
+    
+    .profile-image-large {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+        border: 4px solid var(--bg-primary);
+    }
+    
+    .profile-image-large img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .journey-section {
+        padding: 4rem 0;
+        background: var(--bg-secondary);
+        margin: 4rem -2rem;
+        border-radius: 20px;
+    }
+    
+    .journey-title {
+        text-align: center;
+        color: var(--text-primary);
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+    }
+    
+    .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--color-primary);
+        transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+        display: flex;
+        margin-bottom: 3rem;
+        position: relative;
+    }
+    
+    .timeline-item:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+    
+    .timeline-content {
+        background: var(--bg-primary);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+        flex: 1;
+        margin: 0 2rem;
+    }
+    
+    .timeline-date {
+        background: var(--color-primary);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+    
+    .timeline-title {
+        color: var(--text-primary);
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    .timeline-subtitle {
+        color: var(--color-secondary);
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    
+    .timeline-description {
+        color: var(--text-secondary);
+        line-height: 1.6;
+    }
+    
+    .timeline-marker {
+        position: absolute;
+        left: 50%;
+        top: 2rem;
+        width: 16px;
+        height: 16px;
+        background: var(--color-primary);
+        border: 4px solid var(--bg-primary);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+    
+    .skills-section {
+        padding: 4rem 0;
+    }
+    
+    .skills-title {
+        text-align: center;
+        color: var(--text-primary);
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+    }
+    
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .skill-category {
+        background: var(--bg-primary);
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+    }
+    
+    .skill-category h4 {
+        color: var(--text-primary);
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .skill-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    
+    .skill-name {
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+    
+    .skill-level {
+        display: flex;
+        gap: 2px;
+    }
+    
+    .skill-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--border-color);
+    }
+    
+    .skill-dot.filled {
+        background: var(--color-primary);
+    }
+    
+    .values-section {
+        padding: 4rem 0;
+        background: var(--bg-secondary);
+        margin: 4rem -2rem;
+        border-radius: 20px;
+    }
+    
+    .values-title {
+        text-align: center;
+        color: var(--text-primary);
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+    }
+    
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    
+    .value-card {
+        background: var(--bg-primary);
+        padding: 2rem;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+    }
+    
+    .value-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+    }
+    
+    .value-card h4 {
+        color: var(--text-primary);
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .value-card p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+    }
+    
+    @media (max-width: 768px) {
+        .about-main-title {
+            font-size: 2.5rem;
+        }
+        
+        .about-intro {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        
+        .timeline::before {
+            left: 30px;
+        }
+        
+        .timeline-item {
+            flex-direction: row !important;
+            padding-left: 60px;
+        }
+        
+        .timeline-content {
+            margin: 0;
+        }
+        
+        .timeline-marker {
+            left: 30px;
+            transform: translateX(-50%);
+        }
+    }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                <span class="hero-nom-clean">Frédéric Mirindi</span>
+            </a>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="publications.html" class="nav-link">Publications</a>
+            </li>
+            <li class="nav-item">
+                <a href="conferences.html" class="nav-link">Conferences</a>
+            </li>
+            <li class="nav-item">
+                <a href="research.html" class="nav-link">Research</a>
+            </li>
+            <li class="nav-item">
+                <a href="blog.html" class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link active">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+        </ul>
+        <div class="nav-controls">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+    <section class="page active">
+        <!-- Hero Section -->
+        <div class="about-minimal-hero">
+            <div class="container">
+                <h1 class="about-main-title">About Me</h1>
+                <p class="about-subtitle">Passionate researcher bridging economics and artificial intelligence</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="about-content">
+                <!-- Introduction Section -->
+                <div class="about-intro">
+                    <div class="about-text">
+                        <p>
+                            Welcome! I'm Frédéric Mirindi, a PhD Candidate in Economics & Econometrics at the University of Manitoba, 
+                            where I explore the fascinating intersection of artificial intelligence and economic analysis. My research 
+                            focuses on developing innovative machine learning models for economic forecasting and policy analysis, 
+                            with a particular emphasis on applications in developing economies.
+                        </p>
+                        
+                        <p>
+                            As the founder of ThinkBit Edge Corp., I bridge the gap between academic research and practical applications, 
+                            working on cutting-edge projects that leverage AI to solve real-world economic challenges. My work spans 
+                            multiple domains, from blockchain economics and game-theoretic analysis to development economics and 
+                            digital transformation in emerging markets.
+                        </p>
+                        
+                        <p>
+                            I'm also an active researcher at Université de Saint-Boniface and Booth University College, where I 
+                            collaborate with fellow researchers on projects examining family dynamics, social policy effectiveness, 
+                            and the role of technology in economic development. My previous collaboration with the African Economic 
+                            Research Consortium (AERC) has shaped my understanding of the unique challenges and opportunities in 
+                            African economies.
+                        </p>
+                        
+                        <p>
+                            When I'm not diving deep into economic models or training neural networks, you'll find me presenting 
+                            at international conferences, mentoring students, or exploring the latest developments in AI and 
+                            blockchain technology. I believe in the power of interdisciplinary research to create meaningful 
+                            solutions for complex global challenges.
+                        </p>
+                    </div>
+                    
+                    <div class="about-image">
+                        <div class="profile-image-large">
+                            <img src="frederic.mirindi.jpg" alt="Frédéric Mirindi">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Academic Journey Timeline -->
+                <div class="journey-section">
+                    <h2 class="journey-title">My Academic Journey</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">2023 - Present</div>
+                                <h3 class="timeline-title">PhD in Economics & Econometrics</h3>
+                                <p class="timeline-subtitle">University of Manitoba, Canada</p>
+                                <p class="timeline-description">
+                                    Focusing on AI applications in economic analysis, with research areas including machine learning 
+                                    for economic forecasting, game-theoretic analysis of blockchain systems, and development economics 
+                                    in Sub-Saharan Africa. Currently working on dissertation research examining the intersection of 
+                                    artificial intelligence and economic policy.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">2024 - Present</div>
+                                <h3 class="timeline-title">Founder & CEO</h3>
+                                <p class="timeline-subtitle">ThinkBit Edge Corp.</p>
+                                <p class="timeline-description">
+                                    Established a research and consulting firm specializing in AI applications for economic analysis. 
+                                    Leading projects on blockchain economics, machine learning model development, and digital transformation 
+                                    strategies for emerging markets.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">2022 - 2023</div>
+                                <h3 class="timeline-title">Research Collaborator</h3>
+                                <p class="timeline-subtitle">African Economic Research Consortium (AERC)</p>
+                                <p class="timeline-description">
+                                    Contributed to the development of innovative economic policies tailored to African markets and 
+                                    contexts. Conducted research on family dynamics, child outcomes, and social policy effectiveness 
+                                    in Sub-Saharan African economies.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">2021 - Present</div>
+                                <h3 class="timeline-title">Researcher</h3>
+                                <p class="timeline-subtitle">Université de Saint-Boniface & Booth University College</p>
+                                <p class="timeline-description">
+                                    Active researcher focusing on interdisciplinary projects combining economics, technology, and 
+                                    social policy. Collaborating on studies examining digital transformation impacts on traditional 
+                                    economic structures and social dynamics.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills & Expertise -->
+                <div class="skills-section">
+                    <h2 class="skills-title">Skills & Expertise</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4><i class="fas fa-brain"></i> Machine Learning & AI</h4>
+                            <div class="skill-item">
+                                <span class="skill-name">Deep Learning</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Neural Networks</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Time Series Analysis</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4><i class="fas fa-chart-line"></i> Economics & Econometrics</h4>
+                            <div class="skill-item">
+                                <span class="skill-name">Economic Modeling</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Causal Inference</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Panel Data Analysis</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4><i class="fas fa-code"></i> Programming & Technology</h4>
+                            <div class="skill-item">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">R & Stata</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Blockchain Development</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot"></div>
+                                    <div class="skill-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4><i class="fas fa-users"></i> Research & Communication</h4>
+                            <div class="skill-item">
+                                <span class="skill-name">Academic Writing</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Public Speaking</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Project Management</span>
+                                <div class="skill-level">
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot filled"></div>
+                                    <div class="skill-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Values & Philosophy -->
+                <div class="values-section">
+                    <h2 class="values-title">My Values & Philosophy</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h4>Innovation</h4>
+                            <p>
+                                Constantly pushing the boundaries of what's possible at the intersection of economics and technology, 
+                                developing novel solutions to complex global challenges.
+                            </p>
+                        </div>
+                        
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h4>Collaboration</h4>
+                            <p>
+                                Believing in the power of interdisciplinary collaboration and knowledge sharing to create 
+                                meaningful impact across academic and industry boundaries.
+                            </p>
+                        </div>
+                        
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h4>Global Impact</h4>
+                            <p>
+                                Committed to research that addresses real-world problems, particularly in developing economies, 
+                                and contributes to sustainable economic development.
+                            </p>
+                        </div>
+                        
+                        <div class="value-card">
+                            <div class="value-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4>Continuous Learning</h4>
+                            <p>
+                                Embracing a lifelong learning mindset, staying at the forefront of technological advances 
+                                and economic theory to drive meaningful research outcomes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                    <h4>Frédéric Mirindi</h4>
+                </a>
+                <p>PhD Candidate - Economics &amp; Econometrics</p>
+                <p>Founder - ThinkBit Edge Corp.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="conferences.html">Conferences</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>frederic.mirindi@umanitoba.ca</p>
+                <p>+1 (204) 298-4337</p>
+                <div style="margin-top:10px; display:flex; gap:15px; align-items:center;">
+                    <a href="https://www.linkedin.com/in/fredericmirindi" target="_blank" rel="noopener" title="LinkedIn">
+                        <img src="images/linkedin-icon.svg" alt="LinkedIn" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <a href="https://x.com/MirindiFrederic" target="_blank" rel="noopener" title="X">
+                        <img src="images/x-icon.svg" alt="X" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank" rel="noopener" title="ResearchGate">
+                        <img src="images/researchgate-icon.svg" alt="ResearchGate" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=fr&user=K5--CxAAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener" title="Google Scholar">
+                        <img src="images/google-scholar-icon.svg" alt="Google Scholar" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <a href="https://orcid.org/0009-0001-1798-9914" target="_blank" rel="noopener" title="ORCID">
+                        <img src="images/orcid-icon.svg" alt="ORCID iD" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2020 Frédéric Mirindi. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="app.js"></script>
+
+</body>
+</html>

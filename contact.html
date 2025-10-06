@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Frédéric Mirindi</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="description" content="Get in touch with Frédéric Mirindi for collaboration opportunities, research inquiries, and professional connections.">
+    <meta name="keywords" content="Contact Frederic Mirindi, Collaboration, Research Inquiry, Economics Consultant, AI Research Contact">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/profile-links-white.css">
+    <link rel="stylesheet" href="assets/css/profile-icons-fix.css">
+    <link rel="stylesheet" href="assets/css/icon-visibility.css">
+    <link rel="stylesheet" href="assets/css/footer-icons-fix.css">
+    
+    <style>
+    /* Contact-specific styles */
+    .contact-minimal-hero {
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        padding: 6rem 0 4rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .contact-main-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .contact-subtitle {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 300;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .contact-content {
+        padding: 4rem 0;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 4rem;
+    }
+    
+    .contact-info {
+        background: var(--bg-primary);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+    }
+    
+    .contact-info h2 {
+        color: var(--text-primary);
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    .contact-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: white;
+        flex-shrink: 0;
+    }
+    
+    .contact-details h3 {
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-details p {
+        color: var(--text-secondary);
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-details a {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    
+    .contact-details a:hover {
+        color: var(--color-primary-dark);
+    }
+    
+    .contact-form {
+        background: var(--bg-primary);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+    }
+    
+    .contact-form h2 {
+        color: var(--text-primary);
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+        display: block;
+        color: var(--text-primary);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+        font-family: inherit;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+    
+    .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+    
+    .form-submit {
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .form-submit:hover {
+        background: var(--color-primary-dark);
+        transform: translateY(-1px);
+    }
+    
+    .social-links {
+        padding: 4rem 0;
+        background: var(--bg-secondary);
+        margin: 4rem -2rem;
+        border-radius: 20px;
+    }
+    
+    .social-links h2 {
+        text-align: center;
+        color: var(--text-primary);
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 3rem;
+    }
+    
+    .social-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .social-card {
+        background: var(--bg-primary);
+        padding: 2rem;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+    
+    .social-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+    }
+    
+    .social-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+    }
+    
+    .social-card h3 {
+        color: var(--text-primary);
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .social-card p {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+    
+    .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--color-primary);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+        background: var(--color-primary);
+        color: white;
+        transform: translateY(-1px);
+    }
+    
+    .availability {
+        background: var(--bg-primary);
+        padding: 3rem;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+        margin-top: 4rem;
+    }
+    
+    .availability h2 {
+        color: var(--text-primary);
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .availability p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    
+    .availability-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--color-success);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: 500;
+    }
+    
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        background: white;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.5; }
+        100% { opacity: 1; }
+    }
+    
+    @media (max-width: 768px) {
+        .contact-main-title {
+            font-size: 2.5rem;
+        }
+        
+        .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .social-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                <span class="hero-nom-clean">Frédéric Mirindi</span>
+            </a>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="publications.html" class="nav-link">Publications</a>
+            </li>
+            <li class="nav-item">
+                <a href="conferences.html" class="nav-link">Conferences</a>
+            </li>
+            <li class="nav-item">
+                <a href="research.html" class="nav-link">Research</a>
+            </li>
+            <li class="nav-item">
+                <a href="blog.html" class="nav-link">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </li>
+        </ul>
+        <div class="nav-controls">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+    <section class="page active">
+        <!-- Hero Section -->
+        <div class="contact-minimal-hero">
+            <div class="container">
+                <h1 class="contact-main-title">Contact Me</h1>
+                <p class="contact-subtitle">Let's collaborate on innovative research and exciting projects</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="contact-content">
+                <!-- Main Contact Grid -->
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h2><i class="fas fa-address-book"></i> Get in Touch</h2>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email</h3>
+                                <p>Primary contact for all inquiries</p>
+                                <a href="mailto:frederic.mirindi@umanitoba.ca">frederic.mirindi@umanitoba.ca</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Phone</h3>
+                                <p>Available for scheduled calls</p>
+                                <a href="tel:+12042984337">+1 (204) 298-4337</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Location</h3>
+                                <p>Based in Winnipeg, Manitoba, Canada</p>
+                                <p>University of Manitoba<br>Fletcher Argue Building</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Organization</h3>
+                                <p>CEO & Founder</p>
+                                <a href="#" target="_blank">ThinkBit Edge Corp.</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h2><i class="fas fa-paper-plane"></i> Send a Message</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="organization">Organization/Institution</label>
+                                <input type="text" id="organization" name="organization">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="research-collaboration">Research Collaboration</option>
+                                    <option value="consulting-inquiry">Consulting Inquiry</option>
+                                    <option value="speaking-engagement">Speaking Engagement</option>
+                                    <option value="media-interview">Media Interview</option>
+                                    <option value="student-mentorship">Student Mentorship</option>
+                                    <option value="academic-opportunity">Academic Opportunity</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" placeholder="Please provide details about your inquiry, including any specific timelines, requirements, or collaboration ideas..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="form-submit">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Social Media Links -->
+                <div class="social-links">
+                    <h2>Connect with Me</h2>
+                    <div class="social-grid">
+                        <div class="social-card">
+                            <div class="social-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <h3>LinkedIn</h3>
+                            <p>Professional networking and career updates. Connect for business opportunities and academic collaborations.</p>
+                            <a href="https://www.linkedin.com/in/fredericmirindi" target="_blank" rel="noopener" class="social-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Connect on LinkedIn
+                            </a>
+                        </div>
+                        
+                        <div class="social-card">
+                            <div class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <h3>Twitter / X</h3>
+                            <p>Latest thoughts on economics, AI research, and academic insights. Follow for regular updates and discussions.</p>
+                            <a href="https://x.com/MirindiFrederic" target="_blank" rel="noopener" class="social-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Follow on X
+                            </a>
+                        </div>
+                        
+                        <div class="social-card">
+                            <div class="social-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>ResearchGate</h3>
+                            <p>Academic publications, research updates, and collaboration opportunities in economics and AI.</p>
+                            <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank" rel="noopener" class="social-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Research
+                            </a>
+                        </div>
+                        
+                        <div class="social-card">
+                            <div class="social-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>Google Scholar</h3>
+                            <p>Complete list of publications, citations, and academic impact metrics across all research areas.</p>
+                            <a href="https://scholar.google.com/citations?hl=fr&user=K5--CxAAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener" class="social-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View Publications
+                            </a>
+                        </div>
+                        
+                        <div class="social-card">
+                            <div class="social-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <h3>ORCID</h3>
+                            <p>Official researcher identification and verified academic record for all scholarly activities.</p>
+                            <a href="https://orcid.org/0009-0001-1798-9914" target="_blank" rel="noopener" class="social-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                View ORCID
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Availability Status -->
+                <div class="availability">
+                    <h2>Current Availability</h2>
+                    <p>
+                        I'm currently open to new collaborations, research partnerships, and consulting opportunities. 
+                        I typically respond to emails within 24-48 hours during business days.
+                    </p>
+                    <div class="availability-status">
+                        <div class="status-dot"></div>
+                        Available for New Projects
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                    <h4>Frédéric Mirindi</h4>
+                </a>
+                <p>PhD Candidate - Economics &amp; Econometrics</p>
+                <p>Founder - ThinkBit Edge Corp.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="conferences.html">Conferences</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>frederic.mirindi@umanitoba.ca</p>
+                <p>+1 (204) 298-4337</p>
+                <div style="margin-top:10px; display:flex; gap:15px; align-items:center;">
+                    <a href="https://www.linkedin.com/in/fredericmirindi" target="_blank" rel="noopener" title="LinkedIn">
+                        <img src="images/linkedin-icon.svg" alt="LinkedIn" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <a href="https://x.com/MirindiFrederic" target="_blank" rel="noopener" title="X">
+                        <img src="images/x-icon.svg" alt="X" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank" rel="noopener" title="ResearchGate">
+                        <img src="images/researchgate-icon.svg" alt="ResearchGate" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=fr&user=K5--CxAAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener" title="Google Scholar">
+                        <img src="images/google-scholar-icon.svg" alt="Google Scholar" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <a href="https://orcid.org/0009-0001-1798-9914" target="_blank" rel="noopener" title="ORCID">
+                        <img src="images/orcid-icon.svg" alt="ORCID iD" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2020 Frédéric Mirindi. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="app.js"></script>
+
+<!-- Contact Form Handler -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('.contact-form form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.subject || !data.message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Create mailto link
+            const subject = encodeURIComponent(`${data.subject} - Message from ${data.name}`);
+            const body = encodeURIComponent(`
+Name: ${data.name}
+Email: ${data.email}
+Organization: ${data.organization || 'Not specified'}
+Subject: ${data.subject}
+
+Message:
+${data.message}
+            `);
+            
+            const mailtoLink = `mailto:frederic.mirindi@umanitoba.ca?subject=${subject}&body=${body}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you for your message! Your email client should open now to send the message.');
+            
+            // Reset form
+            this.reset();
+        });
+    }
+});
+</script>
+
+</body>
+</html>

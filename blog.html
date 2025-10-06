@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Frédéric Mirindi</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <meta name="description" content="Blog posts and insights by Frédéric Mirindi on economics, AI, machine learning, and academic research.">
+    <meta name="keywords" content="Economics Blog, AI Research, Machine Learning, Academic Writing, Economic Analysis, Frederic Mirindi">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/profile-links-white.css">
+    <link rel="stylesheet" href="assets/css/profile-icons-fix.css">
+    <link rel="stylesheet" href="assets/css/icon-visibility.css">
+    <link rel="stylesheet" href="assets/css/footer-icons-fix.css">
+    
+    <style>
+    /* Blog-specific styles */
+    .blog-minimal-hero {
+        background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+        padding: 6rem 0 4rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .blog-main-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .blog-subtitle {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 300;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .blog-content {
+        padding: 4rem 0;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .blog-filters {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        border: 1px solid var(--border-color);
+        padding: 0.75rem 1.5rem;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .filter-btn.active,
+    .filter-btn:hover {
+        background: var(--color-primary);
+        color: white;
+        border-color: var(--color-primary);
+    }
+    
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
+    
+    .blog-card {
+        background: var(--bg-primary);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+    
+    .blog-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+    }
+    
+    .blog-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: white;
+    }
+    
+    .blog-card-content {
+        padding: 2rem;
+    }
+    
+    .blog-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+    }
+    
+    .blog-category {
+        background: var(--color-primary);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    .blog-card h3 {
+        color: var(--text-primary);
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+    
+    .blog-excerpt {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    
+    .blog-read-more {
+        color: var(--color-primary);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .blog-read-more:hover {
+        color: var(--color-primary-dark);
+        transform: translateX(2px);
+    }
+    
+    .coming-soon {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: var(--bg-secondary);
+        border-radius: 16px;
+        margin: 2rem 0;
+    }
+    
+    .coming-soon h3 {
+        color: var(--text-primary);
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .coming-soon p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+    
+    .newsletter-signup {
+        background: var(--bg-primary);
+        border-radius: 16px;
+        padding: 3rem;
+        text-align: center;
+        margin-top: 4rem;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        border: 1px solid var(--border-color);
+    }
+    
+    .newsletter-signup h3 {
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    .newsletter-signup p {
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+    }
+    
+    .newsletter-form {
+        display: flex;
+        gap: 1rem;
+        max-width: 400px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+    
+    .newsletter-input {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        min-width: 250px;
+    }
+    
+    .newsletter-btn {
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .newsletter-btn:hover {
+        background: var(--color-primary-dark);
+    }
+    
+    @media (max-width: 768px) {
+        .blog-main-title {
+            font-size: 2.5rem;
+        }
+        
+        .blog-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .newsletter-form {
+            flex-direction: column;
+        }
+        
+        .newsletter-input {
+            min-width: unset;
+        }
+    }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-brand">
+            <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                <span class="hero-nom-clean">Frédéric Mirindi</span>
+            </a>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="publications.html" class="nav-link">Publications</a>
+            </li>
+            <li class="nav-item">
+                <a href="conferences.html" class="nav-link">Conferences</a>
+            </li>
+            <li class="nav-item">
+                <a href="research.html" class="nav-link">Research</a>
+            </li>
+            <li class="nav-item">
+                <a href="blog.html" class="nav-link active">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+        </ul>
+        <div class="nav-controls">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+    <section class="page active">
+        <!-- Hero Section -->
+        <div class="blog-minimal-hero">
+            <div class="container">
+                <h1 class="blog-main-title">Blog</h1>
+                <p class="blog-subtitle">Insights on economics, AI research, and academic life</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="blog-content">
+                <!-- Blog Filters -->
+                <div class="blog-filters">
+                    <a href="#" class="filter-btn active">All Posts</a>
+                    <a href="#" class="filter-btn">Economics</a>
+                    <a href="#" class="filter-btn">AI & Machine Learning</a>
+                    <a href="#" class="filter-btn">Academic Life</a>
+                    <a href="#" class="filter-btn">Research Tips</a>
+                </div>
+                
+                <!-- Coming Soon Message -->
+                <div class="coming-soon">
+                    <h3>Blog Coming Soon</h3>
+                    <p>
+                        I'm currently working on launching my blog where I'll share insights about economic research, 
+                        AI applications in economics, academic writing tips, and reflections on the intersection of 
+                        technology and economic policy. Subscribe to my newsletter below to be notified when new posts are published!
+                    </p>
+                </div>
+                
+                <!-- Preview of Future Blog Posts -->
+                <div class="blog-grid" style="margin-top: 3rem;">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">AI Economics</span>
+                                <span><i class="fas fa-calendar"></i> Coming Soon</span>
+                                <span><i class="fas fa-clock"></i> 8 min read</span>
+                            </div>
+                            <h3>The Future of AI in Economic Forecasting</h3>
+                            <p class="blog-excerpt">
+                                Exploring how machine learning models are revolutionizing economic prediction and what this means for policy makers and researchers...
+                            </p>
+                            <a href="#" class="blog-read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Academic Life</span>
+                                <span><i class="fas fa-calendar"></i> Coming Soon</span>
+                                <span><i class="fas fa-clock"></i> 6 min read</span>
+                            </div>
+                            <h3>Navigating PhD Life: Lessons from My Journey</h3>
+                            <p class="blog-excerpt">
+                                Personal reflections and practical advice for current and prospective PhD students in economics and related fields...
+                            </p>
+                            <a href="#" class="blog-read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Economics</span>
+                                <span><i class="fas fa-calendar"></i> Coming Soon</span>
+                                <span><i class="fas fa-clock"></i> 10 min read</span>
+                            </div>
+                            <h3>Blockchain Economics: Game Theory in Practice</h3>
+                            <p class="blog-excerpt">
+                                A deep dive into how game-theoretic principles shape blockchain governance and what economists can learn from decentralized systems...
+                            </p>
+                            <a href="#" class="blog-read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Research Tips</span>
+                                <span><i class="fas fa-calendar"></i> Coming Soon</span>
+                                <span><i class="fas fa-clock"></i> 7 min read</span>
+                            </div>
+                            <h3>Conducting Field Research in Developing Countries</h3>
+                            <p class="blog-excerpt">
+                                Practical tips and ethical considerations for economists conducting research in Sub-Saharan Africa and other developing regions...
+                            </p>
+                            <a href="#" class="blog-read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Economics</span>
+                                <span><i class="fas fa-calendar"></i> Coming Soon</span>
+                                <span><i class="fas fa-clock"></i> 9 min read</span>
+                            </div>
+                            <h3>The Economics of Family Decisions in Africa</h3>
+                            <p class="blog-excerpt">
+                                Understanding how cultural norms and economic incentives influence family size and investment decisions in Sub-Saharan Africa...
+                            </p>
+                            <a href="#" class="blog-read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Research Tips</span>
+                                <span><i class="fas fa-calendar"></i> Coming Soon</span>
+                                <span><i class="fas fa-clock"></i> 12 min read</span>
+                            </div>
+                            <h3>Python for Economists: Essential Libraries and Tools</h3>
+                            <p class="blog-excerpt">
+                                A comprehensive guide to Python libraries every economist should know, from data analysis to machine learning applications...
+                            </p>
+                            <a href="#" class="blog-read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Newsletter Signup -->
+                <div class="newsletter-signup">
+                    <h3><i class="fas fa-envelope"></i> Stay Updated</h3>
+                    <p>Subscribe to receive notifications about new blog posts and research updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <a href="index.html" style="text-decoration: none; color: inherit; outline: none;">
+                    <h4>Frédéric Mirindi</h4>
+                </a>
+                <p>PhD Candidate - Economics &amp; Econometrics</p>
+                <p>Founder - ThinkBit Edge Corp.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="publications.html">Publications</a></li>
+                    <li><a href="conferences.html">Conferences</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>frederic.mirindi@umanitoba.ca</p>
+                <p>+1 (204) 298-4337</p>
+                <div style="margin-top:10px; display:flex; gap:15px; align-items:center;">
+                    <a href="https://www.linkedin.com/in/fredericmirindi" target="_blank" rel="noopener" title="LinkedIn">
+                        <img src="images/linkedin-icon.svg" alt="LinkedIn" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <a href="https://x.com/MirindiFrederic" target="_blank" rel="noopener" title="X">
+                        <img src="images/x-icon.svg" alt="X" style="width:24px;height:24px;" class="footer-social-icon">
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Frederic-Mirindi" target="_blank" rel="noopener" title="ResearchGate">
+                        <img src="images/researchgate-icon.svg" alt="ResearchGate" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <a href="https://scholar.google.com/citations?hl=fr&user=K5--CxAAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener" title="Google Scholar">
+                        <img src="images/google-scholar-icon.svg" alt="Google Scholar" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                    <a href="https://orcid.org/0009-0001-1798-9914" target="_blank" rel="noopener" title="ORCID">
+                        <img src="images/orcid-icon.svg" alt="ORCID iD" style="width:24px;height:24px;" class="footer-academic-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2020 Frédéric Mirindi. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="app.js"></script>
+
+</body>
+</html>
