@@ -738,8 +738,42 @@ select.form-control {
 }
 
 /* END PERPLEXITY DESIGN SYSTEM */
-/* ===== ECONOMICS AI CHATBOT - PROFESSIONAL STYLING ===== */
-/* Complete styling for the AI-powered economics chatbot widget */
+```css
+/* ===== ECONOMICS AI CHATBOT - COMPLETE PROFESSIONAL STYLING ===== */
+/* Advanced AI-powered economics chatbot interface with modern design */
+
+:root {
+  --economics-primary: var(--color-primary);
+  --economics-secondary: var(--color-primary-hover);
+  --economics-accent: var(--color-success);
+  --economics-bg: var(--color-background);
+  --economics-text: var(--color-text);
+  --economics-border: var(--color-border);
+  --economics-hover: var(--color-secondary);
+  --economics-shadow: rgba(var(--color-slate-900-rgb), 0.1);
+  --economics-gradient: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  --economics-border-radius: var(--radius-lg);
+  --economics-animation: var(--ease-standard);
+}
+
+/* Dark mode support */
+[data-color-scheme="dark"] {
+  --economics-bg: var(--color-background);
+  --economics-text: var(--color-text);
+  --economics-border: var(--color-border);
+  --economics-hover: var(--color-secondary);
+  --economics-shadow: rgba(var(--color-gray-200-rgb), 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --economics-bg: var(--color-background);
+    --economics-text: var(--color-text);
+    --economics-border: var(--color-border);
+    --economics-hover: var(--color-secondary);
+    --economics-shadow: rgba(var(--color-gray-200-rgb), 0.1);
+  }
+}
 
 /* ===== FLOATING ACTION BUTTON (FAB) ===== */
 .economics-chatbot-fab {
@@ -748,18 +782,19 @@ select.form-control {
   right: var(--space-24);
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  background: var(--economics-gradient);
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-lg);
   cursor: pointer;
   z-index: 9998;
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: all var(--duration-normal) var(--economics-animation);
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   outline: none;
   overflow: hidden;
+  font-family: var(--font-family-base);
 }
 
 .economics-chatbot-fab::before {
@@ -772,7 +807,7 @@ select.form-control {
   background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
   border-radius: var(--radius-full);
   opacity: 0;
-  transition: opacity var(--duration-normal) var(--ease-standard);
+  transition: opacity var(--duration-normal) ease;
 }
 
 .economics-chatbot-fab:hover {
@@ -797,7 +832,7 @@ select.form-control {
   width: var(--space-32);
   height: var(--space-32);
   fill: var(--color-btn-primary-text);
-  transition: transform var(--duration-normal) var(--ease-standard);
+  transition: transform var(--duration-normal) var(--economics-animation);
 }
 
 .economics-chatbot-fab:hover svg {
@@ -810,11 +845,10 @@ select.form-control {
   position: absolute;
   top: -4px;
   right: -4px;
-  background: var(--color-primary);
-  color: var(--color-btn-primary-text);
+  background: var(--economics-accent);
+  color: var(--color-slate-900);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-bold);
-  font-family: var(--font-family-base);
   padding: var(--space-2) var(--space-6);
   border-radius: var(--radius-base);
   min-width: 18px;
@@ -835,8 +869,8 @@ select.form-control {
   right: var(--space-24);
   width: 400px;
   height: 600px;
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
+  background: var(--economics-bg);
+  border-radius: var(--economics-border-radius);
   box-shadow: var(--shadow-lg);
   z-index: 9999;
   display: flex;
@@ -845,8 +879,9 @@ select.form-control {
   transform: scale(0.8) translateY(var(--space-20));
   opacity: 0;
   visibility: hidden;
-  transition: all var(--duration-normal) var(--ease-standard);
-  border: 1px solid var(--color-card-border);
+  transition: all var(--duration-normal) var(--economics-animation);
+  border: 1px solid var(--economics-border);
+  font-family: var(--font-family-base);
 }
 
 .economics-chatbot-modal.show {
@@ -857,7 +892,7 @@ select.form-control {
 
 /* ===== MODAL HEADER ===== */
 .economics-chatbot-header {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  background: var(--economics-gradient);
   color: var(--color-btn-primary-text);
   padding: var(--space-16) var(--space-20);
   display: flex;
@@ -891,9 +926,7 @@ select.form-control {
 #economics-chatbot-title {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-  font-family: var(--font-family-base);
   margin: 0;
-  line-height: var(--line-height-tight);
 }
 
 #economics-chatbot-close {
@@ -908,7 +941,7 @@ select.form-control {
   align-items: center;
   justify-content: center;
   font-size: var(--font-size-xl);
-  transition: all var(--duration-fast) var(--ease-standard);
+  transition: all var(--duration-fast) ease;
 }
 
 #economics-chatbot-close:hover {
@@ -918,7 +951,7 @@ select.form-control {
 
 #economics-chatbot-close:focus-visible {
   outline: var(--focus-outline);
-  outline-offset: 2px;
+  outline-offset: var(--space-2);
 }
 
 /* ===== MESSAGES AREA ===== */
@@ -926,41 +959,41 @@ select.form-control {
   flex: 1;
   padding: var(--space-20);
   overflow-y: auto;
-  background: var(--color-surface);
+  background: var(--economics-bg);
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
 }
 
 .economics-chatbot-messages::-webkit-scrollbar {
-  width: 6px;
+  width: var(--space-6);
 }
 
 .economics-chatbot-messages::-webkit-scrollbar-track {
-  background: var(--color-secondary);
-  border-radius: var(--radius-sm);
+  background: var(--economics-hover);
+  border-radius: 3px;
 }
 
 .economics-chatbot-messages::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: var(--radius-sm);
+  background: var(--economics-primary);
+  border-radius: 3px;
 }
 
 .economics-chatbot-messages::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-hover);
+  background: var(--economics-secondary);
 }
 
 /* ===== WELCOME MESSAGE ===== */
 .economics-bot-welcome-message {
   display: flex;
   gap: var(--space-12);
-  animation: slideInLeft 0.6s var(--ease-standard);
+  animation: slideInLeft 0.6s var(--economics-animation);
 }
 
 .economics-bot-avatar {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  background: var(--economics-gradient);
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
@@ -971,18 +1004,17 @@ select.form-control {
 }
 
 .economics-welcome-content {
-  background: var(--color-background);
+  background: var(--economics-hover);
   border-radius: var(--space-16) var(--space-16) var(--space-16) var(--space-4);
   padding: var(--space-16);
   flex: 1;
-  border: 1px solid var(--color-card-border);
+  border: 1px solid var(--economics-border);
 }
 
 .economics-welcome-content p {
   margin: 0 0 var(--space-12) 0;
-  color: var(--color-text);
+  color: var(--economics-text);
   font-size: var(--font-size-base);
-  font-family: var(--font-family-base);
   line-height: var(--line-height-normal);
 }
 
@@ -999,21 +1031,21 @@ select.form-control {
 
 .economics-capability-tag {
   background: var(--color-surface);
-  border: 1px solid var(--color-card-border);
+  border: 1px solid var(--economics-border);
   border-radius: var(--radius-base);
   padding: var(--space-8) var(--space-12);
   font-size: var(--font-size-sm);
-  font-family: var(--font-family-base);
   text-align: center;
-  color: var(--color-text);
+  color: var(--economics-text);
   font-weight: var(--font-weight-medium);
-  transition: all var(--duration-fast) var(--ease-standard);
+  transition: all var(--duration-fast) ease;
+  cursor: pointer;
 }
 
 .economics-capability-tag:hover {
-  background: var(--color-primary);
+  background: var(--economics-primary);
   color: var(--color-btn-primary-text);
-  border-color: var(--color-primary);
+  border-color: var(--economics-primary);
   transform: translateY(-1px);
 }
 
@@ -1028,7 +1060,7 @@ select.form-control {
 .economics-message {
   display: flex;
   gap: var(--space-12);
-  animation: slideInUp 0.4s var(--ease-standard);
+  animation: slideInUp 0.4s var(--economics-animation);
 }
 
 .economics-message.user {
@@ -1036,30 +1068,28 @@ select.form-control {
 }
 
 .economics-message.user .economics-message-content {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  background: var(--economics-gradient);
   color: var(--color-btn-primary-text);
   border-radius: var(--space-16) var(--space-16) var(--space-4) var(--space-16);
 }
 
 .economics-message.bot .economics-message-content {
-  background: var(--color-background);
-  color: var(--color-text);
+  background: var(--economics-hover);
+  color: var(--economics-text);
   border-radius: var(--space-16) var(--space-16) var(--space-16) var(--space-4);
-  border: 1px solid var(--color-card-border);
+  border: 1px solid var(--economics-border);
 }
 
 .economics-message-content {
   max-width: 80%;
   padding: var(--space-12) var(--space-16);
   font-size: var(--font-size-base);
-  font-family: var(--font-family-base);
   line-height: var(--line-height-normal);
   word-wrap: break-word;
 }
 
 .economics-message-time {
   font-size: var(--font-size-xs);
-  font-family: var(--font-family-base);
   opacity: 0.6;
   margin-top: var(--space-4);
 }
@@ -1070,7 +1100,7 @@ select.form-control {
   gap: var(--space-12);
   opacity: 0;
   transform: translateY(var(--space-10));
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: all var(--duration-normal) ease;
 }
 
 .economics-typing-indicator.show {
@@ -1079,12 +1109,12 @@ select.form-control {
 }
 
 .economics-typing-indicator .economics-bot-avatar {
-  background: var(--color-primary);
+  background: var(--economics-primary);
 }
 
 .economics-typing-dots {
-  background: var(--color-background);
-  border: 1px solid var(--color-card-border);
+  background: var(--economics-hover);
+  border: 1px solid var(--economics-border);
   border-radius: var(--space-16) var(--space-16) var(--space-16) var(--space-4);
   padding: var(--space-16) var(--space-20);
   display: flex;
@@ -1093,10 +1123,10 @@ select.form-control {
 }
 
 .economics-typing-dot {
-  width: 6px;
-  height: 6px;
+  width: var(--space-6);
+  height: var(--space-6);
   border-radius: var(--radius-full);
-  background: var(--color-primary);
+  background: var(--economics-primary);
   animation: typingBounce 1.4s infinite ease-in-out;
 }
 
@@ -1122,8 +1152,8 @@ select.form-control {
 /* ===== INPUT AREA ===== */
 .economics-chatbot-input-area {
   padding: var(--space-16) var(--space-20);
-  border-top: 1px solid var(--color-card-border);
-  background: var(--color-surface);
+  border-top: 1px solid var(--economics-border);
+  background: var(--economics-bg);
   display: flex;
   gap: var(--space-12);
   align-items: center;
@@ -1131,22 +1161,23 @@ select.form-control {
 
 #economics-chatbot-input {
   flex: 1;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--economics-border);
   border-radius: var(--space-24);
   padding: var(--space-12) var(--space-16);
   font-size: var(--font-size-base);
   font-family: var(--font-family-base);
-  background: var(--color-background);
-  color: var(--color-text);
+  background: var(--economics-hover);
+  color: var(--economics-text);
   outline: none;
-  transition: all var(--duration-fast) var(--ease-standard);
+  transition: all var(--duration-fast) ease;
   resize: none;
-  min-height: 20px;
+  min-height: var(--space-20);
   max-height: 100px;
+  line-height: var(--line-height-normal);
 }
 
 #economics-chatbot-input:focus {
-  border-color: var(--color-primary);
+  border-color: var(--economics-primary);
   box-shadow: var(--focus-ring);
   background: var(--color-surface);
 }
@@ -1159,35 +1190,35 @@ select.form-control {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+  background: var(--economics-gradient);
   border: none;
   color: var(--color-btn-primary-text);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--duration-fast) var(--ease-standard);
+  transition: all var(--duration-fast) ease;
   flex-shrink: 0;
 }
 
 .economics-chatbot-input-area button[type="submit"]:hover {
   transform: scale(1.05);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .economics-chatbot-input-area button[type="submit"]:active {
   transform: scale(0.95);
 }
 
-.economics-chatbot-input-area button[type="submit"]:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 2px;
-}
-
 .economics-chatbot-input-area button[type="submit"]:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
+}
+
+.economics-chatbot-input-area button[type="submit"]:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--space-2);
 }
 
 /* ===== QUICK ACTIONS ===== */
@@ -1199,22 +1230,21 @@ select.form-control {
 }
 
 .economics-quick-action {
-  background: var(--color-background);
-  border: 1px solid var(--color-card-border);
+  background: var(--economics-hover);
+  border: 1px solid var(--economics-border);
   border-radius: var(--space-20);
   padding: var(--space-6) var(--space-12);
   font-size: var(--font-size-sm);
-  font-family: var(--font-family-base);
-  color: var(--color-text);
+  color: var(--economics-text);
   cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-standard);
+  transition: all var(--duration-fast) ease;
   white-space: nowrap;
 }
 
 .economics-quick-action:hover {
-  background: var(--color-primary);
+  background: var(--economics-primary);
   color: var(--color-btn-primary-text);
-  border-color: var(--color-primary);
+  border-color: var(--economics-primary);
   transform: translateY(-1px);
 }
 
@@ -1223,16 +1253,15 @@ select.form-control {
   margin: var(--space-12) 0;
   padding: var(--space-16);
   background: var(--color-surface);
-  border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--economics-border);
+  border-radius: var(--economics-border-radius);
   position: relative;
 }
 
 .economics-chart-title {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-semibold);
-  font-family: var(--font-family-base);
-  color: var(--color-text);
+  color: var(--economics-text);
   margin-bottom: var(--space-12);
   text-align: center;
 }
@@ -1240,6 +1269,89 @@ select.form-control {
 .economics-chart-canvas {
   width: 100% !important;
   height: 200px !important;
+}
+
+/* ===== CHAT SUGGESTIONS ===== */
+.economics-chat-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  margin: var(--space-12) 0;
+}
+
+.economics-suggestion {
+  background: var(--economics-hover);
+  border: 1px solid var(--economics-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12) var(--space-16);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+  font-size: var(--font-size-sm);
+  color: var(--economics-text);
+}
+
+.economics-suggestion:hover {
+  background: var(--economics-primary);
+  color: var(--color-btn-primary-text);
+  border-color: var(--economics-primary);
+  transform: translateY(-1px);
+}
+
+/* ===== ECONOMIC DATA DISPLAY ===== */
+.economics-data-point {
+  display: inline-block;
+  background: var(--economics-primary);
+  color: var(--color-btn-primary-text);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 var(--space-4);
+}
+
+.economics-data-positive {
+  background: var(--color-success);
+  color: var(--color-btn-primary-text);
+}
+
+.economics-data-negative {
+  background: var(--color-error);
+  color: var(--color-btn-primary-text);
+}
+
+.economics-data-neutral {
+  background: var(--color-info);
+  color: var(--color-btn-primary-text);
+}
+
+/* ===== FORMULA DISPLAY ===== */
+.economics-formula {
+  background: var(--color-secondary);
+  border: 1px solid var(--economics-border);
+  border-radius: var(--radius-base);
+  padding: var(--space-12);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  margin: var(--space-8) 0;
+  overflow-x: auto;
+  color: var(--economics-text);
+}
+
+/* ===== UTILITY CLASSES ===== */
+.economics-hidden {
+  display: none !important;
+}
+
+.economics-fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+.economics-slide-in-left {
+  animation: slideInLeft 0.4s var(--economics-animation);
+}
+
+.economics-slide-in-right {
+  animation: slideInRight 0.4s var(--economics-animation);
 }
 
 /* ===== ANIMATIONS ===== */
@@ -1315,6 +1427,11 @@ select.form-control {
 }
 
 @media (max-width: 480px) {
+  .economics-chatbot-modal {
+    height: 85vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
   .economics-chatbot-messages {
     padding: var(--space-16);
     gap: var(--space-12);
@@ -1322,30 +1439,15 @@ select.form-control {
 
   .economics-chatbot-input-area {
     padding: var(--space-12) var(--space-16);
+    gap: var(--space-8);
   }
 
   .economics-chatbot-header {
     padding: var(--space-12) var(--space-16);
   }
 
-  .economics-quick-actions {
-    padding: var(--space-8) var(--space-16) 0;
-    gap: var(--space-6);
-  }
-
-  .economics-bot-avatar {
-    width: var(--space-32);
-    height: var(--space-32);
-    font-size: var(--font-size-base);
-  }
-
-  .economics-message-content {
-    padding: var(--space-10) var(--space-12);
-    font-size: var(--font-size-sm);
-  }
-
-  .economics-welcome-content {
-    padding: var(--space-12);
+  .economics-chatbot-title-section {
+    gap: var(--space-8);
   }
 
   #economics-chatbot-title {
@@ -1353,10 +1455,10 @@ select.form-control {
   }
 
   .economics-chatbot-fab {
-    bottom: var(--space-16);
-    right: var(--space-16);
     width: 48px;
     height: 48px;
+    bottom: var(--space-16);
+    right: var(--space-16);
   }
 
   .economics-chatbot-fab svg {
@@ -1364,27 +1466,45 @@ select.form-control {
     height: var(--space-24);
   }
 
-  .economics-chatbot-modal {
-    height: 80vh;
+  .economics-message-content {
+    max-width: 85%;
+    font-size: var(--font-size-sm);
+  }
+
+  .economics-welcome-content {
+    padding: var(--space-12);
+  }
+
+  .economics-quick-actions {
+    padding: var(--space-8) var(--space-16) 0;
+    gap: var(--space-6);
   }
 }
 
 /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
-.economics-chatbot-fab:focus-visible,
-#economics-chatbot-close:focus-visible,
-.economics-chatbot-input-area button:focus-visible {
+.economics-chatbot-fab:focus,
+#economics-chatbot-close:focus,
+.economics-chatbot-input-area button:focus {
   outline: var(--focus-outline);
-  outline-offset: 2px;
+  outline-offset: var(--space-2);
 }
 
-#economics-chatbot-input:focus-visible {
+#economics-chatbot-input:focus {
   outline: none;
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   .economics-chatbot-modal {
-    border: 2px solid var(--color-primary);
+    border: 2px solid var(--economics-primary);
+  }
+  
+  .economics-border {
+    --economics-border: var(--color-text);
+  }
+  
+  .economics-shadow {
+    --economics-shadow: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -1410,3 +1530,264 @@ select.form-control {
     display: none !important;
   }
 }
+
+/* ===== LOADING STATES ===== */
+.economics-loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.economics-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--space-20);
+  height: var(--space-20);
+  margin: calc(-1 * var(--space-10)) 0 0 calc(-1 * var(--space-10));
+  border: 2px solid var(--economics-border);
+  border-top: 2px solid var(--economics-primary);
+  border-radius: var(--radius-full);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== ERROR STATES ===== */
+.economics-error-message {
+  background: rgba(var(--color-error-rgb), var(--status-bg-opacity));
+  border: 1px solid rgba(var(--color-error-rgb), var(--status-border-opacity));
+  color: var(--color-error);
+  border-radius: var(--economics-border-radius);
+  padding: var(--space-12);
+  margin: var(--space-8) 0;
+  font-size: var(--font-size-sm);
+}
+
+.economics-success-message {
+  background: rgba(var(--color-success-rgb), var(--status-bg-opacity));
+  border: 1px solid rgba(var(--color-success-rgb), var(--status-border-opacity));
+  color: var(--color-success);
+  border-radius: var(--economics-border-radius);
+  padding: var(--space-12);
+  margin: var(--space-8) 0;
+  font-size: var(--font-size-sm);
+}
+
+/* ===== CONTEXT MENU ===== */
+.economics-context-menu {
+  position: absolute;
+  background: var(--color-surface);
+  border: 1px solid var(--economics-border);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-4) 0;
+  z-index: 10000;
+  min-width: 150px;
+}
+
+.economics-context-item {
+  padding: var(--space-8) var(--space-16);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  color: var(--economics-text);
+  transition: background-color var(--duration-fast) ease;
+}
+
+.economics-context-item:hover {
+  background: var(--economics-hover);
+}
+
+.economics-context-separator {
+  height: 1px;
+  background: var(--economics-border);
+  margin: var(--space-4) 0;
+}
+
+/* ===== ADVANCED FEATURES ===== */
+.economics-voice-button {
+  width: var(--space-32);
+  height: var(--space-32);
+  border-radius: var(--radius-full);
+  background: var(--economics-hover);
+  border: 1px solid var(--economics-border);
+  color: var(--economics-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast) ease;
+  margin-left: var(--space-8);
+}
+
+.economics-voice-button:hover {
+  background: var(--economics-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.economics-voice-button.recording {
+  background: var(--color-error);
+  color: var(--color-btn-primary-text);
+  animation: pulse 1s infinite;
+}
+
+.economics-attachment-button {
+  width: var(--space-32);
+  height: var(--space-32);
+  border-radius: var(--radius-full);
+  background: var(--economics-hover);
+  border: 1px solid var(--economics-border);
+  color: var(--economics-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast) ease;
+  margin-left: var(--space-8);
+}
+
+.economics-attachment-button:hover {
+  background: var(--economics-primary);
+  color: var(--color-btn-primary-text);
+}
+
+/* ===== FILE UPLOAD PREVIEW ===== */
+.economics-file-preview {
+  background: var(--economics-hover);
+  border: 1px solid var(--economics-border);
+  border-radius: var(--radius-base);
+  padding: var(--space-12);
+  margin: var(--space-8) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.economics-file-icon {
+  width: var(--space-32);
+  height: var(--space-32);
+  background: var(--economics-primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-btn-primary-text);
+  flex-shrink: 0;
+}
+
+.economics-file-info {
+  flex: 1;
+}
+
+.economics-file-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--economics-text);
+  margin-bottom: var(--space-2);
+}
+
+.economics-file-size {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.economics-file-remove {
+  width: var(--space-24);
+  height: var(--space-24);
+  border-radius: var(--radius-full);
+  background: var(--color-error);
+  color: var(--color-btn-primary-text);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  transition: all var(--duration-fast) ease;
+}
+
+.economics-file-remove:hover {
+  background: var(--color-error);
+  opacity: 0.8;
+}
+
+/* ===== MARKDOWN SUPPORT ===== */
+.economics-message-content code {
+  background: rgba(var(--color-slate-900-rgb), 0.1);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+}
+
+.economics-message-content pre {
+  background: var(--color-secondary);
+  border: 1px solid var(--economics-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-12);
+  margin: var(--space-8) 0;
+  overflow-x: auto;
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+}
+
+.economics-message-content blockquote {
+  border-left: 4px solid var(--economics-primary);
+  padding-left: var(--space-12);
+  margin: var(--space-8) 0;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.economics-message-content ul,
+.economics-message-content ol {
+  margin: var(--space-8) 0;
+  padding-left: var(--space-20);
+}
+
+.economics-message-content li {
+  margin-bottom: var(--space-4);
+}
+
+/* ===== FEEDBACK BUTTONS ===== */
+.economics-message-feedback {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+  opacity: 0;
+  transition: opacity var(--duration-fast) ease;
+}
+
+.economics-message:hover .economics-message-feedback {
+  opacity: 1;
+}
+
+.economics-feedback-btn {
+  width: var(--space-24);
+  height: var(--space-24);
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 1px solid var(--economics-border);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  transition: all var(--duration-fast) ease;
+}
+
+.economics-feedback-btn:hover {
+  background: var(--economics-hover);
+  color: var(--economics-primary);
+}
+
+.economics-feedback-btn.active {
+  background: var(--economics-primary);
+  color: var(--color-btn-primary-text);
+  border-color: var(--economics-primary);
+}
+```
