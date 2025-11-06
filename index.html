@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Portfolio - AI Researcher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Portfolio</div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-page="home">Home</a>
+                <a href="#research" class="nav-link" data-page="research">Research</a>
+                <a href="#conferences" class="nav-link" data-page="conferences">Conferences</a>
+                <a href="#about" class="nav-link" data-page="about">About</a>
+                <a href="#contact" class="nav-link" data-page="contact">Contact</a>
+            </div>
+            <div class="nav-controls">
+                <button class="icon-btn" id="fontSizeBtn" title="Adjust Font Size">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 7V4h16v3M9 20h6M12 4v16"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" id="darkModeToggle" title="Toggle Dark Mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section class="page active" id="home-page">
+        <div class="hero-section">
+            <div class="container">
+                <h1 class="hero-title fade-in">Your Name</h1>
+                <p class="hero-subtitle fade-in-delay-1">PhD Candidate &amp; AI Researcher</p>
+                <p class="hero-tagline fade-in-delay-2">Bridging AI Technology and Economic Research</p>
+                <div class="hero-actions fade-in-delay-3">
+                    <button class="btn btn--primary" data-page="research">View Research</button>
+                    <button class="btn btn--outline" data-page="contact">Contact Me</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="14">0</div>
+                        <div class="stat-label">Published Papers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="12">0</div>
+                        <div class="stat-label">Conference Presentations</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="8">0</div>
+                        <div class="stat-label">AI Models Developed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-section">
+            <div class="container">
+                <div class="intro-content">
+                    <p>I am a distinguished researcher specializing in artificial intelligence applications in economic analysis. My work focuses on developing innovative machine learning models for economic forecasting and policy analysis. I am passionate about bridging the gap between cutting-edge AI technology and economic research, creating tools and methodologies that advance both fields.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="featured-section">
+            <div class="container">
+                <h2 class="section-title">Featured Research</h2>
+                <div class="featured-grid">
+                    <div class="feature-card">
+                        <h3>Machine Learning in Economics</h3>
+                        <p>Exploring deep learning applications in macroeconomic forecasting with improved accuracy over traditional methods.</p>
+                        <div class="feature-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Economics</span>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <h3>AI-Driven Policy Analysis</h3>
+                        <p>Computational framework for analyzing economic policy impacts using reinforcement learning and agent-based modeling.</p>
+                        <div class="feature-tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">Policy</span>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Financial Time Series</h3>
+                        <p>Novel LSTM architectures for predicting financial market trends with applications to risk management.</p>
+                        <div class="feature-tags">
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Finance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Page -->
+    <section class="page" id="research-page">
+        <div class="container">
+            <h1 class="page-title">Research Portfolio</h1>
+            
+            <div class="research-filters">
+                <input type="text" id="researchSearch" class="form-control" placeholder="Search research papers...">
+                <select id="yearFilter" class="form-control">
+                    <option value="">All Years</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+
+            <div class="research-layout">
+                <div class="research-main">
+                    <div class="research-grid" id="researchGrid"></div>
+                </div>
+
+                <aside class="ai-panel">
+                    <h3>🤖 AI Research Assistant</h3>
+                    
+                    <div class="ai-tool">
+                        <h4>Paper Summarizer</h4>
+                        <textarea id="paperText" class="form-control" rows="4" placeholder="Paste paper abstract here..."></textarea>
+                        <button class="btn btn--primary btn--full-width" id="summarizeBtn">Summarize</button>
+                        <div class="ai-result" id="summaryResult"></div>
+                    </div>
+
+                    <div class="ai-tool">
+                        <h4>Citation Generator</h4>
+                        <select id="citationStyle" class="form-control">
+                            <option value="apa">APA Style</option>
+                            <option value="mla">MLA Style</option>
+                            <option value="chicago">Chicago Style</option>
+                        </select>
+                        <select id="paperSelect" class="form-control">
+                            <option value="0">Paper 1</option>
+                            <option value="1">Paper 2</option>
+                            <option value="2">Paper 3</option>
+                        </select>
+                        <button class="btn btn--primary btn--full-width" id="generateCitation">Generate Citation</button>
+                        <div class="ai-result" id="citationResult"></div>
+                    </div>
+
+                    <div class="ai-tool">
+                        <h4>Keyword Extractor</h4>
+                        <textarea id="abstractText" class="form-control" rows="3" placeholder="Paste abstract to extract keywords..."></textarea>
+                        <button class="btn btn--primary btn--full-width" id="extractKeywords">Extract Keywords</button>
+                        <div class="ai-result" id="keywordsResult"></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conferences Page -->
+    <section class="page" id="conferences-page">
+        <div class="container">
+            <h1 class="page-title">Conference Presentations &amp; Speaking Engagements</h1>
+            
+            <div class="conference-filters">
+                <select id="confYearFilter" class="form-control">
+                    <option value="">All Years</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+
+            <div class="conference-layout">
+                <div class="conference-main">
+                    <div class="timeline" id="conferenceTimeline"></div>
+                </div>
+
+                <aside class="ai-panel">
+                    <h3>🎯 Conference Recommender</h3>
+                    <p>AI-powered suggestions based on your research interests</p>
+                    <div class="form-group">
+                        <label class="form-label">Research Interests:</label>
+                        <input type="text" id="researchInterests" class="form-control" placeholder="e.g., Machine Learning, Economics">
+                    </div>
+                    <button class="btn btn--primary btn--full-width" id="recommendConf">Get Recommendations</button>
+                    <div class="ai-result" id="confRecommendations"></div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section class="page" id="about-page">
+        <div class="container">
+            <h1 class="page-title">About Me</h1>
+            
+            <div class="about-header">
+                <div class="profile-photo">
+                    <svg width="150" height="150" viewBox="0 0 150 150">
+                        <circle cx="75" cy="75" r="75" fill="var(--color-primary)" opacity="0.2"/>
+                        <path d="M75 45 C60 45 50 55 50 70 C50 80 55 85 60 90 L60 95 C60 100 65 105 75 105 C85 105 90 100 90 95 L90 90 C95 85 100 80 100 70 C100 55 90 45 75 45 Z" fill="var(--color-primary)"/>
+                        <circle cx="75" cy="120" r="25" fill="var(--color-primary)"/>
+                    </svg>
+                </div>
+                <div class="profile-info">
+                    <h2>Your Name</h2>
+                    <p class="profile-title">PhD Candidate &amp; AI Researcher</p>
+                    <div class="positions">
+                        <div class="position-tag">PhD Candidate - Economics &amp; Econometrics</div>
+                        <div class="position-tag">Research Associate - University Name</div>
+                        <div class="position-tag">Founder - Research Lab</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <section class="bio-section">
+                    <h3>Biography</h3>
+                    <p>Distinguished researcher specializing in artificial intelligence applications in economic analysis. Expertise in machine learning models for economic forecasting and policy analysis. Passionate about bridging the gap between AI technology and economic research.</p>
+                </section>
+
+                <section class="interests-section">
+                    <h3>Research Interests</h3>
+                    <div class="interest-tags">
+                        <span class="interest-tag">Machine Learning</span>
+                        <span class="interest-tag">Economic Forecasting</span>
+                        <span class="interest-tag">Policy Analysis</span>
+                        <span class="interest-tag">Deep Learning</span>
+                        <span class="interest-tag">Computational Economics</span>
+                    </div>
+                </section>
+
+                <section class="teaching-section">
+                    <h3>Teaching</h3>
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-level">Undergraduate</div>
+                            <h4>Introduction to Econometrics</h4>
+                            <p>Fundamental statistical methods for economic analysis, hypothesis testing, and regression modeling.</p>
+                        </div>
+                        <div class="course-card">
+                            <div class="course-level">Graduate</div>
+                            <h4>Machine Learning for Economics</h4>
+                            <p>Applications of ML algorithms in economic research including supervised and unsupervised learning methods.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="network-section">
+                    <h3>🤖 Academic Network Visualizer</h3>
+                    <div class="network-container">
+                        <svg id="networkGraph" width="100%" height="400"></svg>
+                    </div>
+                </section>
+
+                <section class="skills-section">
+                    <h3>Skills &amp; Expertise</h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-name">Machine Learning</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Python Programming</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Econometrics</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 88%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Data Visualization</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section class="page" id="contact-page">
+        <div class="container">
+            <h1 class="page-title">Contact Me</h1>
+            
+            <div class="contact-layout">
+                <div class="contact-main">
+                    <div class="contact-form-container">
+                        <h3>Send a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" id="contactName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" id="contactEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="contactSubject" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" id="contactMessage" rows="6" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+                        </form>
+                        <div class="success-message" id="successMessage" style="display: none;">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6L9 17l-5-5"/>
+                            </svg>
+                            <span>Message sent successfully!</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-info-grid">
+                        <div class="contact-card">
+                            <div class="contact-icon">📧</div>
+                            <h4>Email</h4>
+                            <p>your.email@university.edu</p>
+                            <p>contact@yourwebsite.com</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">📍</div>
+                            <h4>Office</h4>
+                            <p>Room 123, Economics Building</p>
+                            <p>University Name, City, Country</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon">🕐</div>
+                            <h4>Office Hours</h4>
+                            <p>Mondays &amp; Wednesdays</p>
+                            <p>2:00-4:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h3>Connect With Me</h3>
+                        <div class="social-grid">
+                            <a href="#" class="social-link" target="_blank">
+                                <span class="social-icon">💼</span>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link" target="_blank">
+                                <span class="social-icon">🎓</span>
+                                <span>Google Scholar</span>
+                            </a>
+                            <a href="#" class="social-link" target="_blank">
+                                <span class="social-icon">🔬</span>
+                                <span>ResearchGate</span>
+                            </a>
+                            <a href="#" class="social-link" target="_blank">
+                                <span class="social-icon">💻</span>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="ai-panel">
+                    <h3>✉️ Smart Email Assistant</h3>
+                    <p>AI-powered email templates for professional communication</p>
+                    <div class="form-group">
+                        <label class="form-label">Email Purpose:</label>
+                        <select id="emailPurpose" class="form-control">
+                            <option value="collaboration">Collaboration Request</option>
+                            <option value="media">Media Inquiry</option>
+                            <option value="student">Student Inquiry</option>
+                        </select>
+                    </div>
+                    <button class="btn btn--primary btn--full-width" id="generateEmail">Generate Template</button>
+                    <div class="ai-result" id="emailTemplate"></div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header" id="chatbotHeader">
+            <span>🤖 Research Assistant AI</span>
+            <button class="chatbot-close" id="chatbotClose">×</button>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chat-message bot-message">
+                <p>Hello! I'm your AI research assistant. Ask me anything about this portfolio!</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Ask a question...">
+            <button id="chatSend">Send</button>
+        </div>
+    </div>
+    <button class="chatbot-toggle" id="chatbotToggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Privacy Policy</a>
+                <a href="#home">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Size Modal -->
+    <div class="modal" id="fontModal">
+        <div class="modal-content">
+            <h3>Adjust Font Size</h3>
+            <div class="font-size-options">
+                <button class="btn btn--outline" data-size="small">Small</button>
+                <button class="btn btn--outline" data-size="medium">Medium</button>
+                <button class="btn btn--outline" data-size="large">Large</button>
+            </div>
+            <button class="btn btn--primary" id="closeFontModal">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
