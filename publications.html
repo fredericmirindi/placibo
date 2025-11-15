@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frédéric Mirindi - Publications</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Frédéric Mirindi</div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="research.html" class="nav-link">Research</a></li>
+                <li><a href="publications.html" class="nav-link active">Publications</a></li>
+                <li><a href="teaching.html" class="nav-link">Teaching</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page active-page">
+        <div class="container">
+            <h1 class="page-title fade-in">Publications</h1>
+            <p class="page-subtitle fade-in">Peer-reviewed research articles, book chapters, and conference papers</p>
+
+            <div class="publications-filter fade-up">
+                <input type="text" id="pubSearch" class="search-input" placeholder="Search publications...">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="Journal">Journals</button>
+                    <button class="filter-btn" data-filter="Conference">Conferences</button>
+                    <button class="filter-btn" data-filter="Book">Books</button>
+                </div>
+            </div>
+
+            <div class="publications-list">
+                <div class="publication-item glass fade-up" data-type="Journal" data-year="2026">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Optimizing ML algorithms for real-time privacy-preserving patient monitoring in embedded systems</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Mirindi, F., Khang, A., &amp; Mirindi, D.</p>
+                    <p class="pub-venue">Revolutionizing Digital Healthcare Through Artificial Intelligence and Automation • 2026 • Book Chapter</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>This chapter explores machine learning optimization techniques for healthcare monitoring systems that maintain patient privacy through embedded systems design and real-time processing capabilities.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Journal" data-year="2025">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Machine learning-driven analysis of nanoparticle performance on concrete mechanical properties</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Mirindi, D., Hunter, J., Sinkhonde, D., &amp; Mirindi, F.</p>
+                    <p class="pub-venue">Manufacturing Letters, Vol. 44 • 2025 • Journal</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                        <a href="#" class="pub-link" target="_blank">DOI: 10.1016/j.mfglet.2025 →</a>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>Applies ensemble machine learning algorithms to predict and optimize concrete mechanical properties enhanced with nanoparticles, advancing sustainable construction materials research.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Journal" data-year="2025">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Predicting the compressive strength of laterite blocks stabilized with metakaolin geopolymer and sugarcane molasses via machine learning</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Sinkhonde, D., Mirindi, F., Dabakuyo, I., Bezabih, T., Nkanpa Moffo, N.D., &amp; Mirindi, F.</p>
+                    <p class="pub-venue">Cleaner Waste Systems, Vol. 12 • 2025 • Journal</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                        <a href="#" class="pub-link" target="_blank">DOI: 10.1016/j.clwas.2025.100352 →</a>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>Machine learning predictive models for sustainable construction materials incorporating waste products and alternative binders, supporting green building technologies.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Journal" data-year="2025">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Ensemble machine learning algorithms for efficient prediction of compressive strength of concrete containing tyre rubber and brick powder</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Sinkhonde, D., Bezabih, T., Mirindi, D., Mashava, D., &amp; Mirindi, F.</p>
+                    <p class="pub-venue">Cleaner Waste Systems, Vol. 10 • 2025 • Journal</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                        <a href="#" class="pub-link" target="_blank">DOI: 10.1016/j.clwas.2025.100236 →</a>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>Ensemble learning approaches for predicting concrete properties when incorporating waste materials, advancing circular economy principles in construction.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Journal" data-year="2025">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Forecasting energy prices using machine learning algorithms: A comparative analysis</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Mirindi, F., &amp; Mirindi, D.</p>
+                    <p class="pub-venue">Machine Learning Technologies on Energy Economics and Finance (Springer) • 2025 • Book Chapter</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                        <a href="#" class="pub-link" target="_blank">DOI: 10.1007/978-3-031-94862-6 →</a>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>Comparative analysis of machine learning techniques for energy price forecasting, informing sustainable energy market strategies and investment decisions.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Journal" data-year="2025">
+                    <div class="pub-header">
+                        <h3 class="pub-title">SEF-Net: A hybrid deep learning architecture for multi-step forecasting in sustainable energy markets</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Mirindi, F., &amp; Mirindi, D.</p>
+                    <p class="pub-venue">Advances in Computational Intelligence, IWANN 2025 (Springer LNCS) • 2026 • Conference</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                        <a href="#" class="pub-link" target="_blank">DOI: 10.1007/978-3-032-02728-3 →</a>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>Novel deep learning architecture combining multiple neural network approaches for accurate long-term energy market forecasting in sustainable sectors.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Conference" data-year="2025">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Adaptive Proof-of-Stake Governance: A Game-Theoretic Approach to Consensus Mechanisms</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Mirindi, F.</p>
+                    <p class="pub-venue">MARBLE 2025 – International Conference on Mathematical Research for Blockchain Economics • 2025 • Conference</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>Game-theoretic analysis of blockchain governance mechanisms, providing mathematical frameworks for adaptive consensus protocols in decentralized systems.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Conference" data-year="2025">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Family Size and Children's Outcomes in Sub-Saharan Africa: The Role of Social Safety Nets</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Mirindi, F.</p>
+                    <p class="pub-venue">59th Annual Meeting of the Canadian Economics Association • 2025 • Conference</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>Analysis of how social protection programs influence family size decisions and child outcomes, contributing to policy understanding in developing economies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Frédéric Mirindi</h3>
+                <p>PhD Candidate in Economics &amp; Econometrics</p>
+                <p>University of Manitoba</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><a href="mailto:frederic.mirindi@umanitoba.ca">frederic.mirindi@umanitoba.ca</a></p>
+                <p><a href="mailto:frederic.mirindi@boothuc.ca">frederic.mirindi@boothuc.ca</a></p>
+                <p><a href="https://fredericmirindi.com" target="_blank">fredericmirindi.com</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Location</h3>
+                <p>Winnipeg, Manitoba, Canada</p>
+                <p>📍 Carney, MD (Current)</p>
+            </div>
+            <div class="footer-section">
+                <h3>Academic Profiles</h3>
+                <div class="footer-links">
+                    <a href="#" target="_blank">Google Scholar</a>
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">ResearchGate</a>
+                    <a href="#" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Frédéric Mirindi. All rights reserved.</p>
+            <p>PhD Candidate in Economics &amp; Econometrics | University of Manitoba</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
