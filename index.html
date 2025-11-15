@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Sarah Mitchell - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar glass" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Dr. Sarah Mitchell</div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#research" class="nav-link">Research</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#teaching" class="nav-link">Teaching</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page 1: Home -->
+    <section id="home" class="page active-page">
+        <div class="hero-section">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1 class="hero-title">Dr. Sarah Mitchell</h1>
+                    <p class="hero-subtitle">Professor of Computer Science &amp; Engineering</p>
+                    <p class="hero-department">Department of Computer Science | Institute of Technology</p>
+                    <div class="hero-buttons">
+                        <a href="#research" class="btn btn-primary">Explore Research</a>
+                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Stats Section -->
+            <div class="stats-section fade-up">
+                <div class="stat-card glass">
+                    <div class="stat-number" data-target="87">0</div>
+                    <div class="stat-label">Publications</div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="stat-number" data-target="45">0</div>
+                    <div class="stat-label">Students Mentored</div>
+                </div>
+                <div class="stat-card glass">
+                    <div class="stat-number" data-target="12">0</div>
+                    <div class="stat-label">Research Grants</div>
+                </div>
+            </div>
+
+            <!-- Bio Section -->
+            <div class="bio-section fade-up">
+                <h2 class="section-title">About</h2>
+                <p class="bio-text">Dr. Sarah Mitchell is a leading researcher in artificial intelligence and machine learning with over 15 years of experience in academia. Her work focuses on developing innovative AI solutions for real-world problems, with particular emphasis on robotics, human-computer interaction, and ethical AI systems.</p>
+            </div>
+
+            <!-- Research Areas -->
+            <div class="research-areas-section fade-up">
+                <h2 class="section-title">Research Areas</h2>
+                <div class="research-areas-grid">
+                    <div class="area-card glass">
+                        <div class="area-icon">🤖</div>
+                        <h3>Artificial Intelligence</h3>
+                    </div>
+                    <div class="area-card glass">
+                        <div class="area-icon">📊</div>
+                        <h3>Machine Learning</h3>
+                    </div>
+                    <div class="area-card glass">
+                        <div class="area-icon">🦾</div>
+                        <h3>Robotics &amp; Automation</h3>
+                    </div>
+                    <div class="area-card glass">
+                        <div class="area-icon">👥</div>
+                        <h3>Human-Computer Interaction</h3>
+                    </div>
+                    <div class="area-card glass">
+                        <div class="area-icon">⚖️</div>
+                        <h3>Ethical AI Systems</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 2: Research -->
+    <section id="research" class="page">
+        <div class="container">
+            <h1 class="page-title fade-in">Research Projects</h1>
+            <p class="page-subtitle fade-in">Exploring innovative solutions at the intersection of AI, robotics, and human-centered design</p>
+            
+            <div class="filter-section fade-up">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="2024">2024-2025</button>
+                <button class="filter-btn" data-filter="2023">2023-2024</button>
+                <button class="filter-btn" data-filter="2022">2022-2023</button>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card glass fade-up" data-year="2024">
+                    <div class="project-year">2023-2025</div>
+                    <h3 class="project-title">Autonomous Navigation Systems for Urban Robots</h3>
+                    <p class="project-description">Developing advanced machine learning algorithms for autonomous robots to navigate complex urban environments safely and efficiently.</p>
+                    <div class="project-collaborators">MIT, Stanford University</div>
+                    <button class="project-details-btn">View Details</button>
+                    <div class="project-details-content">
+                        <p>This groundbreaking project focuses on creating robust navigation systems that allow robots to operate seamlessly in dynamic urban settings. Our approach combines computer vision, deep reinforcement learning, and sensor fusion to enable real-time decision-making in crowded, unpredictable environments.</p>
+                    </div>
+                </div>
+
+                <div class="project-card glass fade-up" data-year="2023">
+                    <div class="project-year">2022-2024</div>
+                    <h3 class="project-title">Explainable AI for Healthcare Diagnostics</h3>
+                    <p class="project-description">Creating transparent AI systems that can explain their diagnostic decisions to healthcare professionals, improving trust and adoption.</p>
+                    <div class="project-collaborators">Johns Hopkins Medical Center</div>
+                    <button class="project-details-btn">View Details</button>
+                    <div class="project-details-content">
+                        <p>This project addresses one of the most critical challenges in medical AI: interpretability. We develop AI systems that not only provide accurate diagnoses but also explain their reasoning in terms that medical professionals can understand and verify, fostering trust and enabling better patient outcomes.</p>
+                    </div>
+                </div>
+
+                <div class="project-card glass fade-up" data-year="2022">
+                    <div class="project-year">2021-2023</div>
+                    <h3 class="project-title">Natural Language Interfaces for Smart Homes</h3>
+                    <p class="project-description">Building intuitive voice-controlled systems that understand context and user preferences in smart home environments.</p>
+                    <div class="project-collaborators">Google Research, CMU</div>
+                    <button class="project-details-btn">View Details</button>
+                    <div class="project-details-content">
+                        <p>This research explores how natural language processing and context awareness can create more intuitive smart home experiences. Our systems learn user preferences over time and understand implicit context, making voice interactions feel more natural and responsive.</p>
+                    </div>
+                </div>
+
+                <div class="project-card glass fade-up" data-year="2024">
+                    <div class="project-year">2020-2024</div>
+                    <h3 class="project-title">Ethical AI Framework Development</h3>
+                    <p class="project-description">Establishing comprehensive frameworks and guidelines for developing AI systems that prioritize fairness, transparency, and accountability.</p>
+                    <div class="project-collaborators">EU AI Ethics Board</div>
+                    <button class="project-details-btn">View Details</button>
+                    <div class="project-details-content">
+                        <p>Working with international partners, this project establishes practical frameworks for ethical AI development. We provide guidelines, tools, and methodologies that help researchers and practitioners build AI systems that are fair, transparent, and accountable to diverse stakeholders.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: Publications -->
+    <section id="publications" class="page">
+        <div class="container">
+            <h1 class="page-title fade-in">Publications</h1>
+            <p class="page-subtitle fade-in">Peer-reviewed research articles and conference papers</p>
+
+            <div class="publications-filter fade-up">
+                <input type="text" id="pubSearch" class="search-input" placeholder="Search publications...">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="Journal">Journals</button>
+                    <button class="filter-btn" data-filter="Conference">Conferences</button>
+                </div>
+            </div>
+
+            <div class="publications-list">
+                <div class="publication-item glass fade-up" data-type="Journal" data-year="2024">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Deep Reinforcement Learning for Multi-Agent Coordination in Complex Environments</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Mitchell, S., Johnson, R., Chen, L.</p>
+                    <p class="pub-venue">IEEE Transactions on Robotics • 2024 • Journal</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                        <a href="#" class="pub-link" target="_blank">Download PDF →</a>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>This paper presents a novel approach to multi-agent coordination using deep reinforcement learning techniques.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Journal" data-year="2023">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Explainability Metrics for Medical AI Systems: A Comprehensive Survey</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Mitchell, S., Thompson, K., Rodriguez, M.</p>
+                    <p class="pub-venue">Nature Machine Intelligence • 2023 • Journal</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                        <a href="#" class="pub-link" target="_blank">Download PDF →</a>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>A comprehensive analysis of existing explainability metrics and their applicability to medical AI systems.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Conference" data-year="2023">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Context-Aware Voice Interfaces: Bridging Human Intent and Machine Understanding</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Mitchell, S., Park, J.</p>
+                    <p class="pub-venue">ACM CHI Conference on Human Factors in Computing Systems • 2023 • Conference</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                        <a href="#" class="pub-link" target="_blank">Download PDF →</a>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>An investigation into how context awareness can improve voice interface performance and user satisfaction.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Conference" data-year="2022">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Fairness-Aware Machine Learning: Algorithms and Applications</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Chen, L., Mitchell, S., Williams, A.</p>
+                    <p class="pub-venue">International Conference on Machine Learning (ICML) • 2022 • Conference</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                        <a href="#" class="pub-link" target="_blank">Download PDF →</a>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>Proposing new algorithms that incorporate fairness constraints while maintaining predictive performance.</p>
+                    </div>
+                </div>
+
+                <div class="publication-item glass fade-up" data-type="Journal" data-year="2022">
+                    <div class="pub-header">
+                        <h3 class="pub-title">Robotic Perception in Adverse Weather Conditions Using Multi-Modal Sensors</h3>
+                        <button class="copy-citation-btn" title="Copy citation">📋</button>
+                    </div>
+                    <p class="pub-authors">Mitchell, S., Kumar, V., Zhang, Y.</p>
+                    <p class="pub-venue">Robotics and Autonomous Systems • 2022 • Journal</p>
+                    <div class="pub-actions">
+                        <button class="pub-expand-btn">View Abstract</button>
+                        <a href="#" class="pub-link" target="_blank">Download PDF →</a>
+                    </div>
+                    <div class="pub-abstract">
+                        <p>Developing robust perception systems for autonomous robots operating in challenging weather conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 4: Teaching -->
+    <section id="teaching" class="page">
+        <div class="container">
+            <h1 class="page-title fade-in">Teaching</h1>
+            <p class="page-subtitle fade-in">Courses, philosophy, and student experiences</p>
+
+            <!-- Teaching Philosophy -->
+            <div class="teaching-philosophy glass fade-up">
+                <h2>Teaching Philosophy</h2>
+                <p>I believe in fostering a collaborative learning environment where students are encouraged to think critically, ask questions, and explore innovative solutions. My teaching approach combines theoretical foundations with hands-on practical experience, preparing students for real-world challenges in technology and engineering.</p>
+            </div>
+
+            <!-- Courses -->
+            <div class="courses-section fade-up">
+                <h2 class="section-title">Current Courses</h2>
+                <div class="courses-grid">
+                    <div class="course-card glass">
+                        <div class="course-header">
+                            <div class="course-code">CS 101</div>
+                            <div class="course-level">Undergraduate</div>
+                        </div>
+                        <h3 class="course-title">Introduction to Programming</h3>
+                        <p class="course-semester">Fall 2024</p>
+                        <button class="course-expand-btn">View Details</button>
+                        <div class="course-details">
+                            <p>Fundamentals of programming using Python. Topics include data types, control structures, functions, and object-oriented programming basics.</p>
+                        </div>
+                    </div>
+
+                    <div class="course-card glass">
+                        <div class="course-header">
+                            <div class="course-code">CS 401</div>
+                            <div class="course-level">Graduate</div>
+                        </div>
+                        <h3 class="course-title">Advanced Machine Learning</h3>
+                        <p class="course-semester">Spring 2025</p>
+                        <button class="course-expand-btn">View Details</button>
+                        <div class="course-details">
+                            <p>Deep dive into advanced ML techniques including deep learning, reinforcement learning, and transfer learning. Hands-on projects with real-world datasets.</p>
+                        </div>
+                    </div>
+
+                    <div class="course-card glass">
+                        <div class="course-header">
+                            <div class="course-code">CS 350</div>
+                            <div class="course-level">Undergraduate</div>
+                        </div>
+                        <h3 class="course-title">Robotics and Automation</h3>
+                        <p class="course-semester">Fall 2024</p>
+                        <button class="course-expand-btn">View Details</button>
+                        <div class="course-details">
+                            <p>Introduction to robotics principles, kinematics, sensors, actuators, and autonomous navigation. Includes lab sessions with robot platforms.</p>
+                        </div>
+                    </div>
+
+                    <div class="course-card glass">
+                        <div class="course-header">
+                            <div class="course-code">CS 502</div>
+                            <div class="course-level">Graduate</div>
+                        </div>
+                        <h3 class="course-title">Ethical AI and Society</h3>
+                        <p class="course-semester">Spring 2025</p>
+                        <button class="course-expand-btn">View Details</button>
+                        <div class="course-details">
+                            <p>Exploration of ethical considerations in AI development, including bias, fairness, privacy, and societal impact. Case studies and discussions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Office Hours -->
+            <div class="office-hours glass fade-up">
+                <h2>📅 Office Hours</h2>
+                <p class="office-hours-time">Tuesday &amp; Thursday, 2:00 PM - 4:00 PM</p>
+                <p class="office-hours-location">Engineering Building, Room 405</p>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="testimonials-section fade-up">
+                <h2 class="section-title">Student Testimonials</h2>
+                <div class="testimonials-carousel">
+                    <div class="testimonial-card glass active">
+                        <p class="testimonial-text">"Dr. Mitchell's ML course transformed my understanding of AI. Her practical approach and real-world examples made complex concepts accessible."</p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Alex Johnson</div>
+                            <div class="author-program">MS Computer Science, 2023</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card glass">
+                        <p class="testimonial-text">"The robotics course was incredibly engaging. Dr. Mitchell's passion for the subject is contagious and her mentorship was invaluable."</p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Maria Garcia</div>
+                            <div class="author-program">BS Computer Engineering, 2024</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 5: Contact -->
+    <section id="contact" class="page">
+        <div class="container">
+            <h1 class="page-title fade-in">Get in Touch</h1>
+            <p class="page-subtitle fade-in">Let's discuss research collaborations, academic inquiries, or opportunities</p>
+
+            <div class="contact-content">
+                <div class="contact-info-section fade-up">
+                    <div class="contact-card glass">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <a href="mailto:s.mitchell@university.edu">s.mitchell@university.edu</a>
+                    </div>
+                    <div class="contact-card glass">
+                        <div class="contact-icon">📍</div>
+                        <h3>Office</h3>
+                        <p>Engineering Building, Room 405</p>
+                    </div>
+                    <div class="contact-card glass">
+                        <div class="contact-icon">📞</div>
+                        <h3>Phone</h3>
+                        <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                    </div>
+                    <div class="contact-card glass">
+                        <div class="contact-icon">🕐</div>
+                        <h3>Office Hours</h3>
+                        <p>Tuesday &amp; Thursday<br>2:00 PM - 4:00 PM</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-section fade-up">
+                    <form class="contact-form glass" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form-input" required>
+                            <label for="name" class="form-label">Name</label>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" class="form-input" required>
+                            <label for="email" class="form-label">Email</label>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" class="form-input" required>
+                            <label for="subject" class="form-label">Subject</label>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" class="form-input" rows="5" required></textarea>
+                            <label for="message" class="form-label">Message</label>
+                            <span class="form-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loader"></span>
+                        </button>
+                    </form>
+                    <div class="form-success" id="formSuccess">
+                        <div class="success-icon">✓</div>
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. I'll get back to you soon.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links fade-up">
+                <h2 class="section-title">Academic Profiles</h2>
+                <div class="social-grid">
+                    <a href="#" class="social-link glass" target="_blank">
+                        <span class="social-icon">🎓</span>
+                        <span>Google Scholar</span>
+                    </a>
+                    <a href="#" class="social-link glass" target="_blank">
+                        <span class="social-icon">💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-link glass" target="_blank">
+                        <span class="social-icon">🔬</span>
+                        <span>ResearchGate</span>
+                    </a>
+                    <a href="#" class="social-link glass" target="_blank">
+                        <span class="social-icon">💻</span>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
