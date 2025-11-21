@@ -1,174 +1,761 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Frédéric Mirindi - PhD Candidate in Economics & Econometrics">
-    <meta name="author" content="Frédéric Mirindi">
-    <title>Frédéric Mirindi - Home</title>
-    <link rel="stylesheet" href="style-final.css">
+    <title>Frédéric Mirindi | PhD Candidate Economics</title>
+    
+    <!-- Tailwind CSS for Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Three.js for 3D Graphics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #60a5fa; /* Blue-400 */
+            --glass-bg: rgba(15, 23, 42, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #e2e8f0;
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* The 3D Canvas needs to be fixed in the background */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind everything */
+            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--primary-color);
+        }
+
+        /* Navigation Hover Effects */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        /* Page Transitions */
+        .page-section {
+            display: none;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hide scrollbar for cleaner look but allow scrolling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased">
+
+    <!-- 3D Background -->
+    <div id="canvas-container"></div>
+
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-brand">Frédéric Mirindi</a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="research.html" class="nav-link">Research</a></li>
-                <li><a href="publications.html" class="nav-link">Publications</a></li>
-                <li><a href="teaching.html" class="nav-link">Teaching</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-                <li>
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
+    <nav class="fixed w-full z-50 top-0 border-b border-white/10 bg-slate-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 cursor-pointer" onclick="navigateTo('home')">
+                    <h1 class="text-2xl font-bold tracking-wider text-white">Frédéric Mirindi<span class="text-blue-400">.</span></h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <button onclick="navigateTo('home')" class="nav-link active px-3 py-2 rounded-md text-sm font-medium text-white" id="nav-home">Home</button>
+                        <button onclick="navigateTo('research')" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white" id="nav-research">Research</button>
+                        <button onclick="navigateTo('teaching')" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white" id="nav-teaching">Teaching</button>
+                        <button onclick="navigateTo('publications')" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white" id="nav-publications">Publications</button>
+                        <button onclick="navigateTo('blog')" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white" id="nav-blog">Blog</button>
+                        <button onclick="navigateTo('contacts')" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white" id="nav-contacts">Contact</button>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i class="fas fa-bars"></i>
                     </button>
-                </li>
-            </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-slate-900 border-b border-gray-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="navigateTo('home')" class="block px-3 py-2 rounded-md text-base font-medium text-white w-full text-left">Home</button>
+                <button onclick="navigateTo('research')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white w-full text-left">Research</button>
+                <button onclick="navigateTo('teaching')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white w-full text-left">Teaching</button>
+                <button onclick="navigateTo('publications')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white w-full text-left">Publications</button>
+                <button onclick="navigateTo('contacts')" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white w-full text-left">Contact</button>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-background"></div>
-        <div class="hero-content">
-            <div class="hero-text fade-in">
-                <h1 class="hero-title">Frédéric Mirindi</h1>
-                <p class="hero-subtitle">PhD Candidate in Economics & Econometrics</p>
-                <p class="hero-department">University of Manitoba | Economics &amp; Data Science</p>
-                <div class="hero-buttons">
-                    <a href="research.html" class="btn btn-primary">Explore Research</a>
-                    <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+    <!-- Main Content Area -->
+    <main class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10 min-h-screen flex flex-col justify-center">
+        
+        <!-- HOME PAGE -->
+        <section id="home" class="page-section active">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h1 class="text-5xl md:text-6xl font-bold text-white leading-tight">
+                        Exploring the Frontiers of <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Game Theory</span>, 
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-emerald-400">Machine Learning</span> 
+                        & <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-500">Macroeconometrics</span>.
+                    </h1>
+                    <p class="text-lg text-gray-300 max-w-lg leading-relaxed">
+                        Hi, I'm <strong class="text-white">Frédéric Mirindi</strong>. <br>
+                        PhD Candidate in Economics and Econometrics at the University of Manitoba.
+                    </p>
+                    <p class="text-gray-400">
+                        Specializing in time-series analysis, macro-econometric modeling, and predictive analytics for complex market systems.
+                    </p>
+                    <div class="flex space-x-4 pt-4">
+                        <button onclick="navigateTo('research')" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition shadow-lg shadow-blue-500/30">
+                            View Research
+                        </button>
+                        <button onclick="navigateTo('contacts')" class="px-8 py-3 glass-card hover:bg-slate-800 text-white rounded-lg font-semibold transition">
+                            Contact Me
+                        </button>
+                    </div>
+                    <div class="flex space-x-6 pt-6 text-gray-400">
+                        <a href="#" class="hover:text-blue-400 transition text-2xl"><i class="fab fa-github"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition text-2xl"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition text-2xl"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition text-2xl"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <!-- The 3D sphere is positioned visually here via camera angle, but technically in background -->
+                <div class="hidden md:block h-96 flex items-center justify-center">
+                   <!-- Visual spacer for the 3D element on the right -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Main Content -->
-    <main class="page active-page">
-        <div class="container">
-            <!-- Profile Section -->
-            <div class="profile-section fade-up">
-                <div class="profile-card glass">
-                    <div class="profile-picture-container">
-                        <img src="profile-picture.jpg" alt="Frédéric Mirindi" class="profile-picture">
-                    </div>
-                    <div class="profile-info">
-                        <h2>Frédéric Mirindi</h2>
-                        <p class="profile-title">PhD Candidate in Economics &amp; Econometrics</p>
-                        <p class="profile-email"><a href="mailto:frederic.mirindi@umanitoba.ca">frederic.mirindi@umanitoba.ca</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stats Section -->
-            <div class="stats-section fade-up">
-                <div class="stat-card glass">
-                    <div class="stat-number" data-target="24">0</div>
-                    <div class="stat-label">Publications</div>
-                </div>
-                <div class="stat-card glass">
-                    <div class="stat-number" data-target="11">0</div>
-                    <div class="stat-label">Years Academic Experience</div>
-                </div>
-                <div class="stat-card glass">
-                    <div class="stat-number" data-target="5">0</div>
-                    <div class="stat-label">Courses Taught</div>
-                </div>
-                <div class="stat-card glass">
-                    <div class="stat-number" data-target="2">0</div>
-                    <div class="stat-label">Research Streams</div>
-                </div>
+        <!-- RESEARCH PAGE -->
+        <section id="research" class="page-section">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Research Fields</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">My current work bridges the gap between theoretical economic frameworks and rigorous statistical validation.</p>
             </div>
 
-            <!-- Bio Section -->
-            <div class="bio-section fade-up">
-                <h2 class="section-title">About</h2>
-                <p class="bio-text">Frédéric Mirindi is a PhD Candidate in Economics & Econometrics at the University of Manitoba, with expertise spanning economic analysis, data science, and machine learning applications. His work combines rigorous econometric methods with advanced computational techniques to address complex problems in economic development, Francophone immigration, and sustainable industries. With experience as a Data Analyst at Canada Life and as a Sessional Instructor at multiple institutions, Frédéric bridges the gap between academic research and practical industry applications.</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 mb-6 text-xl">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Time Series Econometrics</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Developing robust models for non-stationary data, focusing on structural breaks and long-memory processes in financial markets.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 mb-6 text-xl">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Macroeconomic Policy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Analyzing the transmission mechanisms of monetary policy shocks in emerging economies using Bayesian VAR approaches.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 mb-6 text-xl">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Computational Economics</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Leveraging machine learning techniques to enhance forecasting accuracy for high-dimensional economic datasets.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 glass-card p-8 rounded-2xl">
+                <h3 class="text-2xl font-bold text-white mb-4">Current Working Paper</h3>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h4 class="text-lg text-blue-300 font-semibold">"Asymmetric Volatility in Global Energy Markets: A GARCH Approach"</h4>
+                        <p class="text-gray-400 text-sm mt-2">Status: Under Review, Journal of Applied Econometrics</p>
+                    </div>
+                    <button class="px-6 py-2 border border-gray-600 hover:border-white text-white rounded-lg transition text-sm">
+                        Download Abstract
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEACHING PAGE -->
+        <section id="teaching" class="page-section">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-4">Teaching Experience</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Educating the next generation of economists and mathematicians.</p>
             </div>
 
-            <!-- Research Areas -->
-            <div class="research-areas-section fade-up">
-                <h2 class="section-title">Research Areas</h2>
-                <div class="research-areas-grid">
-                    <div class="area-card glass">
-                        <div class="area-icon">📊</div>
-                        <h3>Econometrics &amp; Economic Analysis</h3>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                
+                <!-- Booth University College -->
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-blue-500 relative overflow-hidden">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Booth University College</h3>
+                            <p class="text-blue-400 font-medium">Sessional Instructor | Winnipeg</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 bg-blue-900/30 px-4 py-1 rounded-full text-sm text-blue-200 border border-blue-500/30">
+                            September 2024 – Present
+                        </div>
                     </div>
-                    <div class="area-card glass">
-                        <div class="area-icon">🤖</div>
-                        <h3>Machine Learning Applications</h3>
+                    <div class="space-y-4">
+                        <!-- Course Group -->
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-slate-800/50 p-4 rounded-lg">
+                                <h4 class="text-white font-semibold">ECO110 — Intro to Microeconomics</h4>
+                                <p class="text-gray-400 text-xs mt-1">Oct 2024–May 2025 | Class size: 15–25</p>
+                            </div>
+                            <div class="bg-slate-800/50 p-4 rounded-lg">
+                                <h4 class="text-white font-semibold">MAT100 — Applied Finite Mathematics</h4>
+                                <p class="text-gray-400 text-xs mt-1">Jan 2025–May 2025 | Class size: 15–25</p>
+                            </div>
+                            <div class="bg-slate-800/50 p-4 rounded-lg">
+                                <h4 class="text-white font-semibold">BHS 200 — Research Methods</h4>
+                                <p class="text-gray-400 text-xs mt-1">Sep 2025–Dec 2025</p>
+                            </div>
+                            <div class="bg-slate-800/50 p-4 rounded-lg">
+                                <h4 class="text-white font-semibold">MAT 110 — Calculus</h4>
+                                <p class="text-gray-400 text-xs mt-1">Oct 2025–Dec 2025</p>
+                            </div>
+                            <div class="bg-slate-800/50 p-4 rounded-lg">
+                                <h4 class="text-white font-semibold">BUS 270 — Business Information Systems</h4>
+                                <p class="text-gray-400 text-xs mt-1">Oct 2025–Dec 2025</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="area-card glass">
-                        <div class="area-icon">💼</div>
-                        <h3>Economic History &amp; Development</h3>
+                </div>
+
+                <!-- Université de Saint-Boniface -->
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-red-500">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Université de Saint-Boniface</h3>
+                            <p class="text-red-400 font-medium">Instructor | Winnipeg</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 bg-red-900/30 px-4 py-1 rounded-full text-sm text-red-200 border border-red-500/30">
+                            September – December 2025
+                        </div>
                     </div>
-                    <div class="area-card glass">
-                        <div class="area-icon">🌍</div>
-                        <h3>Immigration &amp; Social Policy</h3>
+                    <div class="bg-slate-800/50 p-4 rounded-lg">
+                        <h4 class="text-white font-semibold">ECO100 — Introduction to Microeconomics</h4>
                     </div>
-                    <div class="area-card glass">
-                        <div class="area-icon">⚡</div>
-                        <h3>Sustainable Energy Markets</h3>
+                </div>
+
+                <!-- Catholic University of Bukavu -->
+                <div class="glass-card p-8 rounded-2xl border-l-4 border-emerald-500">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Catholic University of Bukavu</h3>
+                            <p class="text-emerald-400 font-medium">Sessional Instructor</p>
+                        </div>
+                        <div class="mt-2 md:mt-0 bg-emerald-900/30 px-4 py-1 rounded-full text-sm text-emerald-200 border border-emerald-500/30">
+                            September 2016 – May 2017
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-slate-800/50 p-4 rounded-lg">
+                            <h4 class="text-white font-semibold">Macroeconomics</h4>
+                            <p class="text-gray-400 text-xs mt-1">Fall 2016 | 132 Undergraduates</p>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-lg">
+                            <h4 class="text-white font-semibold">Quantitative Methods</h4>
+                            <p class="text-gray-400 text-xs mt-1">Winter 2017 | 210 Undergraduates</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PUBLICATIONS PAGE -->
+        <section id="publications" class="page-section">
+             <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl font-bold text-white mb-10 border-l-4 border-blue-500 pl-6">Publications & Proceedings</h2>
+
+                <!-- Forthcoming & 2026 -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-6 flex items-center gap-2"><i class="far fa-calendar-alt"></i> Forthcoming & 2026</h3>
+                    <div class="space-y-4">
+                        <!-- 2026 Entries -->
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Optimizing ML algorithms for real-time privacy-preserving patient monitoring in embedded systems</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, F., Khang, A., & Mirindi, D. (2026)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">In Revolutionizing Digital Healthcare Through AI. DOI: 10.1016/B978-0-443-36434-1.00027-6</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Integration of AI and AR in medical imaging: A quantitative analysis of workflow optimization</h4>
+                            <p class="text-gray-400 text-sm mt-1">Khang, A., Mirindi, F., & Mirindi, D. (2026)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">In Revolutionizing Digital Healthcare Through AI. DOI: 10.1016/B978-0-443-36434-1.00033-1</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Revolutionizing medical imaging and diagnostics through advanced AI and AR technologies</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Mirindi, F., & Khang, A. (2026)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">In Revolutionizing Digital Healthcare Through AI. DOI: 10.1016/B978-0-443-36434-1.00037-9</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">SEF-Net: A hybrid deep learning architecture for multi-step forecasting in sustainable energy markets</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, F., & Mirindi, D. (2026)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">In Advances in Computational Intelligence, IWANN 2025, LNCS 16009. DOI: 10.1007/978-3-032-02728-3_18</p>
+                        </div>
+                        <!-- Forthcoming 2025 -->
+                        <div class="glass-card p-5 rounded-xl border-l-2 border-yellow-500">
+                            <h4 class="text-white font-semibold">Difference-in-Differences Meets AI: Identification, Representation, and Robust Inference via Learned Counterfactual Dynamics</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, F. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Proceedings of IEEE BDKCSE 2025 Conference (Forthcoming)</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl border-l-2 border-yellow-500">
+                            <h4 class="text-white font-semibold">Adaptive Proof-of-Stake Governance: A Game-Theoretic Approach to Consensus Mechanisms</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, F. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">MARBLE 2025 – 6th International Conference on Mathematical Research for Blockchain Economics. Proceedings: Springer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025 -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-6 flex items-center gap-2"><i class="far fa-calendar"></i> 2025</h3>
+                    <div class="space-y-4">
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Machine learning-driven analysis of nanoparticle performance on concrete mechanical properties</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Hunter, J., Sinkhonde, D., & Mirindi, F. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Manufacturing Letters, 44, 1657–1668. DOI: 10.1016/j.mfglet.2025.07.001</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Predicting the compressive strength of laterite blocks stabilized with metakaolin geopolymer and sugarcane molasses</h4>
+                            <p class="text-gray-400 text-sm mt-1">Sinkhonde, D., Mirindi, F., Dabakuyo, I., Bezabih, T., Nkanpa Moffo, N.D., & Mirindi, F. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Cleaner Waste Systems, 12, 100352. DOI: 10.1016/j.clwas.2025.100352</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Ensemble machine learning algorithms for efficient prediction of compressive strength of concrete</h4>
+                            <p class="text-gray-400 text-sm mt-1">Sinkhonde, D., Bezabih, T., Mirindi, D., Mashava, D., & Mirindi, F. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Cleaner Waste Systems, 10, 100236. DOI: 10.1016/j.clwas.2025.100236</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Prediction of flexural and split tensile strength of waste glass-concrete composite using ML algorithms</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Sinkhonde, D., Bezabih, T., Mirindi, F., Oshineye, O., & Mirindi, P. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Green Technologies and Sustainability. DOI: 10.1016/j.grets.2025.100275</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Application of machine learning to predict the properties of wood-composite made from PET, HDPE, and PP fibres</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Sinkhonde, D., & Mirindi, F. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Manufacturing Letters, 44, 24–35. DOI: 10.1016/j.mfglet.2025.06.007</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Performance of machine learning algorithms to evaluate the physico-mechanical properties of nanoparticle panels</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Sinkhonde, D., Mirindi, F., Maksosa, P., & Mirindi, J. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Green Technologies and Sustainability, 3(4), 100235. DOI: 10.1016/j.grets.2025.100235</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Artificial intelligence and automation for driving green transportation systems: A comprehensive review</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Khang, A., & Mirindi, F. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">In Driving Green Transportation System Through AI and Automation. DOI: 10.1007/978-3-031-72617-0_1</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Forecasting energy prices using machine learning algorithms: A comparative analysis</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, F., & Mirindi, D. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">In Machine Learning Technologies on Energy Economics and Finance. DOI: 10.1007/978-3-031-94862-6_6</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Neural networks for predicting market trends in sustainable industries: A review</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, F., & Mirindi, D. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Proceedings of RAISD 2025, 655–670. DOI: 10.2991/978-94-6463-787-8_50</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Advanced evaluation of BIM-GenAI using OpenAI o1 and ethical considerations</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Sinkhonde, D., Mirindi, F., & Bezabih, T. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Proceedings of the 2025 Computers and People Research Conference. DOI: 10.1145/3716489.3728431</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Review: The role of artificial intelligence in building information modeling</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Mirindi, F., Bezabih, T., Sinkhonde, D., & Kiarie, W. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Proceedings of the 2025 Computers and People Research Conference. DOI: 10.1145/3716489.3728433</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Advance toward artificial superintelligence with OpenAI’s O1 reinforcement learning and ethics</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Sinkhonde, D., Mirindi, F., & Bezabih, T. (2025)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">2025 6th International Conference on AIRC. DOI: 10.1109/AIRC64931.2025.11077494</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-6 flex items-center gap-2"><i class="far fa-calendar-check"></i> 2024</h3>
+                    <div class="space-y-4">
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">Structural performance of boards through nanoparticle reinforcement: An advance review</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Hunter, J., Mirindi, F., Sinkhonde, D., & Yazdandoust, F. (2024)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Nanotechnology Reviews, 13(1). DOI: 10.1515/ntrev-2024-0119</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">An advance review of urban-AI and ethical considerations</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., Sinkhonde, D., & Mirindi, F. (2024)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">ACM Conference Proceedings. DOI: 10.1145/3681780.3697246</p>
+                        </div>
+                        <div class="glass-card p-5 rounded-xl">
+                            <h4 class="text-white font-semibold">BIM-driven offsite construction: Pathway to efficiency, functionality and sustainability</h4>
+                            <p class="text-gray-400 text-sm mt-1">Mirindi, D., & Mirindi, F. (2024)</p>
+                            <p class="text-blue-300 text-xs mt-1 italic">Proceedings of TCRC 2024. DOI: 10.57922/bdm9ns80</p>
+                        </div>
+                    </div>
+                </div>
+
+             </div>
+        </section>
+
+        <!-- BLOG PAGE -->
+        <section id="blog" class="page-section">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-white mb-4">Economic Insights</h2>
+                <p class="text-gray-400">Thoughts on current events through an econometric lens.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="glass-card rounded-xl overflow-hidden group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-slate-700 to-slate-800 relative overflow-hidden">
+                        <!-- Decorative elements -->
+                         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48ZyBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDQwaDQwVjBIMHY0MHptMjAgMjBWMjBoMjB2MjBIMjB6TTAgMjBoMjB2MjBIMFYyMHoiIGZpbGw9IiMzMzQxNTUiIGZpbGwtb3BhY2l0eT0iMC4xIi8+PC9nPjwvc3ZnPg==')] opacity-50"></div>
+                         <div class="absolute bottom-0 left-0 p-6">
+                            <span class="text-xs font-bold uppercase tracking-wider text-blue-400 bg-blue-900/30 px-2 py-1 rounded">Analysis</span>
+                         </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-gray-400 text-sm mb-2">October 15, 2025</div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition">The Post-COVID Inflation Persistence</h3>
+                        <p class="text-gray-400 mt-3 text-sm line-clamp-3">
+                            Examining whether recent inflationary trends are truly transitory or structurally embedded using a vector error correction model...
+                        </p>
+                        <div class="mt-4 text-blue-400 text-sm font-semibold">Read More &rarr;</div>
+                    </div>
+                </article>
+
+                 <!-- Blog Post 2 -->
+                 <article class="glass-card rounded-xl overflow-hidden group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-indigo-800 to-slate-800 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjwvc3ZnPg==')] opacity-50"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <span class="text-xs font-bold uppercase tracking-wider text-purple-400 bg-purple-900/30 px-2 py-1 rounded">Coding</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-gray-400 text-sm mb-2">September 02, 2025</div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition">R vs Python for Time Series</h3>
+                        <p class="text-gray-400 mt-3 text-sm line-clamp-3">
+                            A comparative performance analysis of R's 'forecast' package versus Python's 'statsmodels' library when handling high-frequency financial data.
+                        </p>
+                        <div class="mt-4 text-blue-400 text-sm font-semibold">Read More &rarr;</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTACT PAGE -->
+        <section id="contacts" class="page-section">
+            <div class="max-w-2xl mx-auto">
+                <div class="glass-card rounded-2xl p-8 md:p-12">
+                    <h2 class="text-3xl font-bold text-white mb-2">Get in Touch</h2>
+                    <p class="text-gray-400 mb-8">Interested in collaboration, data analysis consulting, or discussing economic theory? Send me a message.</p>
+
+                    <form onsubmit="event.preventDefault(); alert('Thank you! This is a demo form.');" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                                <input type="text" class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                                <input type="email" class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Subject</label>
+                            <input type="text" class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Research Collaboration">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                            <textarea rows="4" class="w-full bg-slate-800/50 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition" placeholder="Your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold py-4 rounded-lg transition transform hover:scale-[1.02] shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+
+                    <div class="mt-10 pt-8 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-400">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-university text-blue-400"></i>
+                            <span>University of Manitoba, Winnipeg, MB</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-blue-400"></i>
+                            <span>frederic.mirindi@umanitoba.ca</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Frédéric Mirindi</h3>
-                <p>PhD Candidate in Economics &amp; Econometrics</p>
-                <p>University of Manitoba</p>
+    <footer class="relative z-10 border-t border-white/5 bg-slate-900/80 backdrop-blur-sm mt-auto">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-between items-center flex-col md:flex-row">
+            <p class="text-gray-500 text-sm">© 2025 Frédéric Mirindi. All rights reserved.</p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <!-- Removed "Designed with..." section as requested -->
             </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p><a href="mailto:frederic.mirindi@umanitoba.ca">frederic.mirindi@umanitoba.ca</a></p>
-                <p><a href="mailto:frederic.mirindi@boothuc.ca">frederic.mirindi@boothuc.ca</a></p>
-                <p><a href="https://fredericmirindi.com" target="_blank" rel="noopener noreferrer">fredericmirindi.com</a></p>
-            </div>
-            <div class="footer-section">
-                <h3>Location</h3>
-                <p>Winnipeg, Manitoba, Canada</p>
-                <p>📍 Carney, MD (Current)</p>
-            </div>
-            <div class="footer-section">
-                <h3>Academic Profiles</h3>
-                <div class="footer-links">
-                    <a href="#" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-                    <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Frédéric Mirindi. All rights reserved.</p>
-            <p>PhD Candidate in Economics &amp; Econometrics | University of Manitoba</p>
         </div>
     </footer>
 
-    <script src="app-final.js"></script>
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- 1. NAVIGATION LOGIC ---
+        function navigateTo(sectionId) {
+            // Update Content
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            const target = document.getElementById(sectionId);
+            if(target) target.classList.add('active');
+
+            // Update Buttons
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            const activeBtn = document.getElementById('nav-' + sectionId);
+            if(activeBtn) activeBtn.classList.add('active');
+
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+
+            // Adjust Camera Target slightly based on page (Simple effect)
+            moveCameraForSection(sectionId);
+            
+            window.scrollTo(0,0);
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // --- 2. THREE.JS 3D BACKGROUND ---
+        const scene = new THREE.Scene();
+        // Fog to blend objects into the background
+        scene.fog = new THREE.FogExp2(0x0f172a, 0.002);
+
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // GEOMETRY 1: The "Econometric" Wireframe Globe
+        const geometry = new THREE.IcosahedronGeometry(10, 2);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x60a5fa, // Blue 400
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15
+        });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        // GEOMETRY 2: Data Particles (Stars/Nodes)
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 700;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            // Spread particles in a large cloud around the camera
+            posArray[i] = (Math.random() - 0.5) * 60; 
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.05,
+            color: 0xe2e8f0,
+            transparent: true,
+            opacity: 0.8,
+        });
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        // GEOMETRY 3: Connecting Lines (Visualizing Network/Regression)
+        // Simple floating lines to represent trends
+        const linesGroup = new THREE.Group();
+        for(let i=0; i<5; i++) {
+            const lineGeo = new THREE.BufferGeometry();
+            const points = [];
+            points.push(new THREE.Vector3((Math.random()-0.5)*30, (Math.random()-0.5)*30, (Math.random()-0.5)*30));
+            points.push(new THREE.Vector3((Math.random()-0.5)*30, (Math.random()-0.5)*30, (Math.random()-0.5)*30));
+            lineGeo.setFromPoints(points);
+            const lineMat = new THREE.LineBasicMaterial({ color: 0x60a5fa, transparent: true, opacity: 0.2 });
+            const line = new THREE.Line(lineGeo, lineMat);
+            linesGroup.add(line);
+        }
+        scene.add(linesGroup);
+
+        camera.position.z = 20;
+
+        // Mouse Interaction
+        let mouseX = 0;
+        let mouseY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        const windowHalfX = window.innerWidth / 2;
+        const windowHalfY = window.innerHeight / 2;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX - windowHalfX);
+            mouseY = (event.clientY - windowHalfY);
+        });
+
+        // Animate based on Section
+        let cameraTargetZ = 20;
+        let cameraTargetX = 0;
+
+        function moveCameraForSection(id) {
+            if(id === 'home') { cameraTargetZ = 20; cameraTargetX = 0; }
+            if(id === 'research') { cameraTargetZ = 25; cameraTargetX = 5; }
+            if(id === 'teaching') { cameraTargetZ = 22; cameraTargetX = -3; }
+            if(id === 'publications') { cameraTargetZ = 25; cameraTargetX = -5; }
+            if(id === 'blog') { cameraTargetZ = 30; cameraTargetX = 0; }
+            if(id === 'contacts') { cameraTargetZ = 15; cameraTargetX = 0; }
+        }
+
+        // ANIMATION LOOP
+        const clock = new THREE.Clock();
+
+        function animate() {
+            const elapsedTime = clock.getElapsedTime();
+
+            targetX = mouseX * 0.001;
+            targetY = mouseY * 0.001;
+
+            // Rotate Sphere
+            sphere.rotation.y += 0.002;
+            sphere.rotation.x += 0.001;
+
+            // Rotate Particles (slower)
+            particlesMesh.rotation.y = -mouseX * 0.00005;
+            particlesMesh.rotation.x = -mouseY * 0.00005;
+
+            // Wave effect on sphere vertices (Simulating economic fluctuations)
+            // Note: Accessing vertices in loop is expensive, using rotation for performance in this demo
+
+            // Smooth Camera Movement
+            camera.position.z += (cameraTargetZ - camera.position.z) * 0.05;
+            camera.position.x += (cameraTargetX - camera.position.x) * 0.05;
+            
+            // Subtle Mouse Parallax
+            sphere.rotation.y += 0.05 * (targetX - sphere.rotation.y);
+            sphere.rotation.x += 0.05 * (targetY - sphere.rotation.x);
+
+            renderer.render(scene, camera);
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Clipboard copy for email (optional utility)
+        function copyEmail() {
+            const el = document.createElement('textarea');
+            el.value = 'frederic.mirindi@umanitoba.ca';
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert('Email copied to clipboard!');
+        }
+
+    </script>
 </body>
 </html>
